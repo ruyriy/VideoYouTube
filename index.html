@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    fetch('videos.txt')
+    fetch('https://raw.githubusercontent.com/ruyriy/VideoYouTube/main/videos.txt')
         .then(response => response.text())
         .then(data => {
             const videoEntries = data.trim().split('\n');
