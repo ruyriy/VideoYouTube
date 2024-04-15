@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -150,30 +150,58 @@ body {
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    const videoList = document.getElementById('videoList');
+    const videoLinks = document.querySelectorAll('.video-link');
+    const videoPlayers = document.querySelectorAll('.video-player');
+
+    // Скрыть все плееры по умолчанию
+    videoPlayers.forEach(player => {
+        player.style.display = 'none';
+    });
+
+    videoLinks.forEach((link, index) => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const parentItem = this.parentElement;
+            const videoId = parentItem.getAttribute('data-video-id');
+
+            // Скрыть все плееры
+            videoPlayers.forEach(player => {
+                player.innerHTML = ''; // Очистить содержимое плеера
+                player.style.display = 'none';
+            });
+
+            // Показать плеер для выбранного видео
+            const playerDiv = parentItem.querySelector('.video-player');
+            const iframe = document.createElement('iframe');
+            iframe.setAttribute('width', '560');
+            iframe.setAttribute('height', '315');
+            iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}`);
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('allowfullscreen', 'true');
+
+            playerDiv.appendChild(iframe);
+            playerDiv.style.display = 'block';
+        });
+    });
 
     fetch('videos.txt')
         .then(response => response.text())
         .then(data => {
             const videoEntries = data.trim().split('\n');
+            const videoList = document.getElementById('videoList');
+
+            videoList.innerHTML = ''; // Очистить список перед добавлением новых элементов
 
             videoEntries.forEach(entry => {
                 const [index, url, title] = entry.split(':');
                 const videoId = url.split('v=')[1];
-
-                const template = document.createElement('li');
-                template.className = 'video-item';
-                template.setAttribute('data-video-id', videoId);
                 
-                template.innerHTML = `
-                    <a href="#" class="video-link">
-                        <img src="youtube_icon.png" alt="YouTube Icon">
-                        <span class="video-index">[${index}]Видео</span>
-                        <span class="video-title">${title}</span>
-                    </a>
-                    <div class="video-player"></div>
-                `;
-
+                const template = videoList.querySelector('.video-item').cloneNode(true);
+                template.querySelector('.video-link').setAttribute('href', url);
+                template.querySelector('.video-link').setAttribute('data-video-id', videoId);
+                template.querySelector('.video-index').textContent = `[${index}]Видео`;
+                template.querySelector('.video-title').textContent = title;
+                
                 videoList.appendChild(template);
             });
         })
@@ -181,7 +209,6 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error('Ошибка загрузки списка видео:', error);
         });
 });
-
 
 
 
