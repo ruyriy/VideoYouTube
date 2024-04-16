@@ -117,6 +117,14 @@
         <p>Церква "Дім Євангелія" м Суми.</p>
         <p style="font-size: smaller; color: green;">[Відео записи. Оновлено 15.04.24]</p>
 
+
+   <!-- Индикатор загрузки -->
+    <div id="loader" style="display: none; text-align: center; margin-top:20px;">
+        <img src="Spinner-3.gif" alt="Loading..." width="50">
+        <p>Завантаження відео...</p>
+    </div>
+
+
 <div class="content-section">
     <h2>
         <img src="logo.jpg" alt="Аватар " class="video-avatar">
@@ -244,24 +252,22 @@
         
     <script>
 
+      document.addEventListener("DOMContentLoaded", function() {
+            const loader = document.getElementById('loader');
+            const videoLinksContainers = document.querySelectorAll('.video-links');
+            const videoPlayers = document.querySelectorAll('.video-player');
 
-document.addEventListener("DOMContentLoaded", function() {
-    const videoLinksContainers = document.querySelectorAll('.video-links');
-    const videoPlayers = document.querySelectorAll('.video-player');
+            // ... остальной код
 
-    // Скрыть все плееры и очистить их содержимое по умолчанию
-    videoPlayers.forEach(player => {
-        player.style.display = 'none';
-        player.innerHTML = '';
-    });
-
-    // Загрузка списка видео из файла
-    fetch('https://dl.dropbox.com/scl/fi/kis5dundjlt45ydec8nyc/videos.txt?rlkey=rd06i69flwri42d91ddptpdli&dl=0')
-        .then(response => response.text())
-        .then(data => {
-            const videos = data.split('\n').filter(Boolean);
-            renderVideoLists(videos);
-        });
+            // Загрузка списка видео из файла
+            loader.style.display = 'block';  // Показать индикатор загрузки
+            fetch('https://dl.dropbox.com/scl/fi/kis5dundjlt45ydec8nyc/videos.txt?rlkey=rd06i69flwri42d91ddptpdli&dl=0')
+                .then(response => response.text())
+                .then(data => {
+                    loader.style.display = 'none';  // Скрыть индикатор загрузки
+                    const videos = data.split('\n').filter(Boolean);
+                    renderVideoLists(videos);
+                });
 
     function renderVideoLists(videos) {
         const videoGroups = {};
