@@ -124,6 +124,12 @@
         <p>Завантаження відео...</p>
     </div>
 
+   <!-- Информация о видео -->
+    <div id="videoInfo" style="font-size: smaller; color: red; text-align: center; margin-top: 10px;">
+        <p>Всього відео: <span id="totalVideos">0</span></p>
+    </div>
+
+
 
 <div class="content-section">
     <h2>
@@ -189,6 +195,16 @@
 <div class="content-section">
     <h2>
         <img src="logo.jpg" alt="Аватар " class="video-avatar">
+        Зинченко
+
+    </h2>
+    <ul class="video-links" data-group="Зинченко"></ul>
+</div>
+
+
+<div class="content-section">
+    <h2>
+        <img src="logo.jpg" alt="Аватар " class="video-avatar">
         Лаба
 
     </h2>
@@ -236,6 +252,22 @@
 <div class="content-section">
     <h2>
         <img src="logo.jpg" alt="Аватар " class="video-avatar">
+        Хоровое пение
+    </h2>
+    <ul class="video-links" data-group="Хоровое пение"></ul>
+</div>
+
+<div class="content-section">
+    <h2>
+        <img src="logo.jpg" alt="Аватар " class="video-avatar">
+        Водне хрещення
+    </h2>
+    <ul class="video-links" data-group="Водне хрещення"></ul>
+</div>
+
+<div class="content-section">
+    <h2>
+        <img src="logo.jpg" alt="Аватар " class="video-avatar">
         Інші відео
     </h2>
     <ul class="video-links" data-group="Other"></ul>
@@ -251,21 +283,22 @@
 </div>
         
     <script>
-
-      document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function() {
             const loader = document.getElementById('loader');
-            const videoLinksContainers = document.querySelectorAll('.video-links');
-            const videoPlayers = document.querySelectorAll('.video-player');
+            const totalVideosElement = document.getElementById('totalVideos');
+            let totalVideos = 0;  // Переменная для хранения общего количества видео
 
             // ... остальной код
 
             // Загрузка списка видео из файла
             loader.style.display = 'block';  // Показать индикатор загрузки
-            fetch('https://raw.githubusercontent.com/ruyriy/VideoYouTube/main/videos.txt')
+            fetch('https://dl.dropbox.com/scl/fi/kis5dundjlt45ydec8nyc/videos.txt?rlkey=rd06i69flwri42d91ddptpdli&dl=0')
                 .then(response => response.text())
                 .then(data => {
                     loader.style.display = 'none';  // Скрыть индикатор загрузки
                     const videos = data.split('\n').filter(Boolean);
+                    totalVideos = videos.length;  // Обновить общее количество видео
+                    totalVideosElement.textContent = totalVideos;  // Обновить информацию на странице
                     renderVideoLists(videos);
                 });
 
