@@ -124,12 +124,11 @@
         <p>Завантаження відео...</p>
     </div>
 
-   <!-- Информация о видео -->
-    <div id="videoInfo" style="font-size: smaller; color: red; text-align: center; margin-top: 10px;">
-        <p>Всього відео: <span id="totalVideos">0</span></p>
+        <!-- Информация о видео -->
+    <div id="videoInfo" style="text-align: center; margin-top: 10px; font-size: smaller; color: blue;">
+       <p>Total Videos: <span id="totalVideos">0</span></p>
+       <!-- <p id="lastUpdated"></p>  Дата последнего обновления -->
     </div>
-
-
 
 <div class="content-section">
     <h2>
@@ -282,23 +281,22 @@
     <ul class="video-links" data-group="unknown"></ul>
 </div>
         
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
+   <script>
+
+      document.addEventListener("DOMContentLoaded", function() {
             const loader = document.getElementById('loader');
-            const totalVideosElement = document.getElementById('totalVideos');
-            let totalVideos = 0;  // Переменная для хранения общего количества видео
+            const videoLinksContainers = document.querySelectorAll('.video-links');
+            const videoPlayers = document.querySelectorAll('.video-player');
 
             // ... остальной код
 
             // Загрузка списка видео из файла
             loader.style.display = 'block';  // Показать индикатор загрузки
-            fetch('https://dl.dropbox.com/scl/fi/kis5dundjlt45ydec8nyc/videos.txt?rlkey=rd06i69flwri42d91ddptpdli&dl=0')
+            fetch('https://raw.githubusercontent.com/ruyriy/VideoYouTube/main/videos.txt')
                 .then(response => response.text())
                 .then(data => {
                     loader.style.display = 'none';  // Скрыть индикатор загрузки
                     const videos = data.split('\n').filter(Boolean);
-                    totalVideos = videos.length;  // Обновить общее количество видео
-                    totalVideosElement.textContent = totalVideos;  // Обновить информацию на странице
                     renderVideoLists(videos);
                 });
 
