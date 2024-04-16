@@ -124,11 +124,7 @@
         <p>Завантаження відео...</p>
     </div>
 
-        <!-- Информация о видео -->
-    <div id="videoInfo" style="text-align: center; margin-top: 10px; font-size: smaller; color: blue;">
-       <p>Total Videos: <span id="totalVideos">0</span></p>
-       <!-- <p id="lastUpdated"></p>  Дата последнего обновления -->
-    </div>
+   <p style="font-size: smaller; text-align: center;">Total videos: <span id="totalVideoCount" style="font-size: smaller; color: gray;">0</span></p>
 
 <div class="content-section">
     <h2>
@@ -283,22 +279,20 @@
         
    <script>
 
-      document.addEventListener("DOMContentLoaded", function() {
-            const loader = document.getElementById('loader');
-            const videoLinksContainers = document.querySelectorAll('.video-links');
-            const videoPlayers = document.querySelectorAll('.video-player');
+  document.addEventListener("DOMContentLoaded", function() {
+    const loader = document.getElementById('loader');
+    const videoLinksContainers = document.querySelectorAll('.video-links');
+    const videoPlayers = document.querySelectorAll('.video-player');
 
-            // ... остальной код
-
-            // Загрузка списка видео из файла
-            loader.style.display = 'block';  // Показать индикатор загрузки
-            fetch('https://raw.githubusercontent.com/ruyriy/VideoYouTube/main/videos.txt')
-                .then(response => response.text())
-                .then(data => {
-                    loader.style.display = 'none';  // Скрыть индикатор загрузки
-                    const videos = data.split('\n').filter(Boolean);
-                    renderVideoLists(videos);
-                });
+    // Загрузка списка видео из файла
+    loader.style.display = 'block';  // Показать индикатор загрузки
+    fetch('https://raw.githubusercontent.com/ruyriy/VideoYouTube/main/videos.txt')
+        .then(response => response.text())
+        .then(data => {
+            loader.style.display = 'none';  // Скрыть индикатор загрузки
+            const videos = data.split('\n').filter(Boolean);
+            renderVideoLists(videos);
+        });
 
     function renderVideoLists(videos) {
         const videoGroups = {};
@@ -311,6 +305,10 @@
             }
             videoGroups[group].push({ videoIndex, videoId, videoTitle });
         });
+
+        // Обновляем глобальный счетчик
+        const totalVideoCount = videos.length;
+        document.getElementById('totalVideoCount').textContent = totalVideoCount;
 
         videoLinksContainers.forEach(container => {
             const group = container.getAttribute('data-group');
