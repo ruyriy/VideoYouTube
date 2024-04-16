@@ -286,7 +286,7 @@
 
     // Загрузка списка видео из файла
     loader.style.display = 'block';  // Показать индикатор загрузки
-    fetch('https://raw.githubusercontent.com/ruyriy/VideoYouTube/main/videos.txt')
+    fetch('videos.txt')
         .then(response => response.text())
         .then(data => {
             loader.style.display = 'none';  // Скрыть индикатор загрузки
