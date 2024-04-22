@@ -70,15 +70,49 @@
             50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0099ff;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0077cc;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Благословен день рождения, Наташа!</h1>
         <p>
-            <span class="highlight">Дорогая Наташа,</span> от всей души поздравляю тебя с днем рождения! Хочется в этот день пожелать тебе превосходного и яркого настроения. Пусть Господь хранит и оберегает от бед тебя и твою семью, дарит тебе запоминающиеся и яркие события жизни, уверенность и крепкое здоровье! Мирного неба и широких возможностей в будущем.
+            <span class="highlight">Дорогая Наташа,</span> от всей души поздравляю тебя с днем рождения! Желаю тебе бесконечного счастья, море радости и невероятных приключений. Пусть каждый момент жизни будет наполнен яркими эмоциями и незабываемыми впечатлениями. Господь даёт тебе крепкое здоровье, удачу во всех начинаниях и семейное благополучие!
         </p>
         <span class="heart">&hearts;</span>
+        <br>
+        <a href="#" id="cardLink" class="btn">Нажми</a>
+        <br>
+        <img src="#" alt="Открытка" id="cardImage" style="display: none; max-width: 100%; margin-top: 20px;">
     </div>
+
+    <script>
+        document.getElementById('cardLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            var image = document.getElementById('cardImage');
+            image.src = 'foto.jpg'; // Замените ссылку на URL вашего изображения
+            image.style.display = 'block';
+            var scrollInterval = setInterval(function() {
+                window.scrollBy(0, 10);
+                if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                    clearInterval(scrollInterval);
+                }
+            }, 20);
+        });
+    </script>
 </body>
 </html>
