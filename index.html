@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Список видео с YouTube</title>
-    <link rel="icon" href="logo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="istockphoto-1331574354.jpg">
     <style>
+
         body {
             font-family: Arial, sans-serif;
             padding: 10px;
             background-color: #f7f7f7;
-            font-size: 22px; /* Увеличение размера шрифта */
         }
 
-        .player {
+       .player {
             width: 560px; /* Ширина плеера для режима ПК */
             height: 315px; /* Высота плеера для режима ПК */
             margin-bottom: 20px; /* Отступ между плеерами */
@@ -25,10 +25,11 @@
                 height: 315px; /* Высота плеера для мобильных устройств */
             }
         }
+
     </style>
 </head>
-<body>
-    <p>Церква "Дім Євангелія" м Суми.</p>
+
+  <p>Церква "Дім Євангелія" м Суми.</p>
     <nav>
         <ul>
             <li><a href="index.html">Головна</a></li>
@@ -39,6 +40,9 @@
     <div id="playlistInfo"></div>
     <div id="players"></div>
 
+<body>  
+ 
+  
     <script>
         // Функция для загрузки содержимого плейлиста
         async function loadPlaylist(url) {
@@ -91,6 +95,12 @@
 
         // Создаем плееры при загрузке страницы
         window.onload = createPlayers;
-    </script>
+    </script> 
+
+
+<footer style="background-color: #f4f4f4; padding: 20px; text-align: center; border-top: 1px solid #ccc; margin-top: 50px;">
+    <p>м. Суми, версія збірки 2 : © 2024 р.</p>
+</footer>
+
 </body>
 </html>
