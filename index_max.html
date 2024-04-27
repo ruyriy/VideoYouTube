@@ -1,0 +1,411 @@
+﻿﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список видео с YouTube</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            background-color: #f7f7f7;
+        }
+
+/* Стили для контейнеров */
+.content-section {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    padding: 20px;
+    background-image: url('icon15.jpg'); /* Путь к вашему фоновому изображению */
+    background-size: cover; /* Масштабирование изображения */
+    background-repeat: no-repeat; /* Запрет повторения фонового изображения */
+    background-position: center; /* Центрирование фонового изображения */
+}
+
+        .content-section h2 {
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .video-links {
+            list-style-type: disc;
+            padding-left: 10px;
+        }
+
+        .video-item {
+            margin: 0;
+        }
+
+        .video-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s;
+            padding: 1px 1px;
+            border-radius: 4px;
+            flex-wrap: wrap;
+        }
+
+        .video-link .video-index {
+            color: #007bff;
+            margin-right: 10px;
+        }
+
+        /* Стили для основного логотипа */
+.content-section .video-avatar {
+    width: 100px;  /* Установите желаемую ширину */
+    height: auto;  /* Автоматическое масштабирование высоты */
+}
+
+/* Стили для иконки YouTube */
+.video-link img {
+    width: 50px;   /* Установите желаемую ширину */
+    height: auto;  /* Автоматическое масштабирование высоты */
+}
+
+        .video-player {
+            display: none;
+            border-radius: 8px;
+            overflow: hidden;
+         }
+
+       
+        @media (max-width: 768px) {
+            .video-player {
+                position: relative;
+                padding-bottom: 56.25%;
+                height: 0;
+                width: 100%;
+            }
+
+            .video-player iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .video-link .video-title {
+                font-size: 14px;
+            }
+
+            .content-section img {
+                width: 20px;
+                height: 20px;
+            }
+
+        }
+
+        @media (min-width: 769px) {
+            .video-player {
+                width: 560px;
+                height: 315px;
+            }
+
+            .content-section img {
+                width: 20px;
+                height: 20px;
+            }
+
+        }
+    </style>
+</head>
+<body>    
+        <p>Церква "Дім Євангелія" м Суми.</p>
+<nav>
+    <ul>
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="video_max.html">Всі записи служінь</a></li>
+        <li><a href="#">Другі відео</a></li>
+    </ul>
+</nav>
+
+
+   <!-- Индикатор загрузки -->
+    <div id="loader" style="display: none; text-align: center; margin-top:20px;">
+        <img src="Spinner-3.gif" alt="Loading..." width="50">
+        <p>Завантаження відео...</p>
+    </div>
+
+   <p style="font-size: smaller; color: red; text-align: center;">Повна збірка. Всього відео: <span id="totalVideoCount" style="font-size: smaller; color: red;">0</span></p>
+
+
+
+<div class="content-section">
+    <h2>
+        <img src="logo.jpg" alt="Аватар " class="video-avatar">
+        Служіння
+    </h2>
+    <ul class="video-links" data-group="Служіння"></ul>
+</div>
+
+
+<div class="content-section">
+    <h2>
+        <img src="logo.jpg" alt="Аватар " class="video-avatar">
+        Прославлення Господа
+    </h2>
+    <ul class="video-links" data-group="Прославлення"></ul>
+</div>
+
+<div class="content-section">
+    <h2>
+        <img src="logo.jpg" alt="Аватар " class="video-avatar">
+        Марйоха Микола Павлович
+
+    </h2>
+    <ul class="video-links" data-group="Марйоха"></ul>
+</div>
+
+<div class="content-section">
+    <h2>
+        <img src="logo.jpg" alt="Аватар " class="video-avatar">
+        Міщенко Андрій
+
+    </h2>
+    <ul class="video-links" data-group="Міщенко"></ul>
+</div>
+
+
+<div class="content-section">
+    <h2>
+        <img src="logo.jpg" alt="Аватар " class="video-avatar">
+        Булигін Андрій Петрович
+
+    </h2>
+    <ul class="video-links" data-group="Булигін"></ul>
+</div>
+
+<div class="content-section">
+    <h2>
+        <img src="logo.jpg" alt="Аватар " class="video-avatar">
+        Зінченко
+
+    </h2>
+    <ul class="video-links" data-group="Зінченко"></ul>
+</div>
+
+<div class="content-section">
+    <h2>
+        <img src="logo.jpg" alt="Аватар " class="video-avatar">
+        Лаба
+
+    </h2>
+    <ul class="video-links" data-group="Лаба"></ul>
+</div>
+
+<div class="content-section">
+    <h2>
+        <img src="logo.jpg" alt="Аватар " class="video-avatar">
+       Парфіло 
+
+    </h2>
+    <ul class="video-links" data-group="Парфило"></ul>
+</div>
+
+<div class="content-section">
+    <h2>
+        <img src="logo.jpg" alt="Аватар " class="video-avatar">
+       Комісар
+
+    </h2>
+    <ul class="video-links" data-group="Комісар"></ul>
+</div>
+
+<div class="content-section">
+    <h2>
+        <img src="logo.jpg" alt="Аватар " class="video-avatar">
+       Иванченко
+
+    </h2>
+    <ul class="video-links" data-group="Іванченко"></ul>
+</div>
+
+
+
+
+
+<div class="content-section">
+    <h2>
+        <img src="logo.jpg" alt="Аватар " class="video-avatar">
+        Прославлення, Молодіжна
+    </h2>
+    <ul class="video-links" data-group="Молодіжне служіння|Дитяче служіння|Охріменко|Олена Приходько"></ul>
+</div>
+
+<div class="content-section">
+    <h2>
+        <img src="logo.jpg" alt="Аватар " class="video-avatar">
+        Хоровий спів
+    </h2>
+    <ul class="video-links" data-group="Хоровий спів"></ul>
+</div>
+
+<div class="content-section">
+    <h2>
+        <img src="logo.jpg" alt="Аватар " class="video-avatar">
+        Водне хрещення
+    </h2>
+    <ul class="video-links" data-group="Водне хрещення"></ul>
+</div>
+
+<div class="content-section">
+    <h2>
+        <img src="logo.jpg" alt="Аватар " class="video-avatar">
+        Інші відео
+    </h2>
+    <ul class="video-links" data-group="остальное|Unknown"></ul>
+</div>
+
+
+        
+<footer style="background-color: #f4f4f4; padding: 20px; text-align: center; border-top: 1px solid #ccc; margin-top: 50px;">
+    <p>м. Суми, версія збірки: © 2024 р.</p>
+</footer>
+
+
+   <script>
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const loader = document.getElementById('loader');
+    const videoLinksContainers = document.querySelectorAll('.video-links');
+    const videoPlayers = document.querySelectorAll('.video-player');
+
+    // Загрузка списка видео из файла
+    loader.style.display = 'block';  // Показать индикатор загрузки
+    fetch('https://raw.githubusercontent.com/ruyriy/VideoYouTube/main/videos.txt')
+        .then(response => response.text())
+        .then(data => {
+            loader.style.display = 'none';  // Скрыть индикатор загрузки
+            const videos = data.split('\n').filter(Boolean);
+            renderVideoLists(videos);
+        });
+
+
+function renderVideoLists(videos) {
+    const videoGroups = {};
+    const unknownVideos = [];
+
+    videos.forEach(video => {
+        const [videoIndex, group, videoId, videoTitle] = video.split(':');
+        if (!videoGroups[group]) {
+            videoGroups[group] = [];
+        }
+        videoGroups[group].push({ videoIndex, videoId, videoTitle });
+    });
+
+    // Обновляем глобальный счетчик
+    const totalVideoCount = videos.length;
+    document.getElementById('totalVideoCount').textContent = totalVideoCount;
+
+    videoLinksContainers.forEach(container => {
+        const groupNames = container.getAttribute('data-group').split('|'); // Разделение групп по прямой черте
+        const videosForGroup = groupNames.flatMap(group => videoGroups[group] || []);
+
+        renderVideoList(videosForGroup, container);
+
+        // Удаление известных групп из общего списка видео
+        groupNames.forEach(group => {
+            delete videoGroups[group];
+        });
+    });
+
+    // Сбор всех оставшихся групп
+    Object.values(videoGroups).forEach(groupVideos => {
+        unknownVideos.push(...groupVideos);
+    });
+
+    // Поиск и обработка контейнера для неизвестных групп
+    const unknownGroupContainer = document.querySelector('.video-links[data-group="unknown"]');
+    renderVideoList(unknownVideos, unknownGroupContainer);
+}
+
+
+
+
+    function renderVideoList(videos, container) {
+        videos.forEach(({ videoIndex, videoId, videoTitle }) => {
+            const videoItem = createVideoItem(videoIndex, videoId, videoTitle);
+            container.appendChild(videoItem);
+        });
+
+        updateVideoListeners(container);
+    }
+
+    function createVideoItem(videoIndex, videoId, videoTitle) {
+        const videoItem = document.createElement('li');
+        videoItem.className = 'video-item';
+        videoItem.setAttribute('data-video-id', videoId);
+
+        const videoLink = document.createElement('a');
+        videoLink.className = 'video-link';
+        videoLink.href = '#';
+
+        const videoImage = document.createElement('img');
+        videoImage.src = 'youtube_icon.png';
+        videoImage.alt = 'YouTube Icon';
+
+        const videoIndexSpan = document.createElement('span');
+        videoIndexSpan.className = 'video-index';
+        videoIndexSpan.textContent = `[${videoIndex}]Видео `;
+
+        const videoTitleSpan = document.createElement('span');
+        videoTitleSpan.className = 'video-title';
+        videoTitleSpan.textContent = videoTitle;
+
+        videoLink.appendChild(videoImage);
+        videoLink.appendChild(videoIndexSpan);
+        videoLink.appendChild(videoTitleSpan);
+
+        const videoPlayerDiv = document.createElement('div');
+        videoPlayerDiv.className = 'video-player';
+
+        videoItem.appendChild(videoLink);
+        videoItem.appendChild(videoPlayerDiv);
+
+        return videoItem;
+    }
+
+    function updateVideoListeners(container) {
+        const videoLinks = container.querySelectorAll('.video-link');
+        const videoPlayers = container.querySelectorAll('.video-player');
+
+        videoLinks.forEach((link, index) => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const parentItem = this.parentElement;
+                const videoId = parentItem.getAttribute('data-video-id');
+
+                videoPlayers.forEach(player => {
+                    player.style.display = 'none';
+                    player.innerHTML = '';
+                });
+
+                const playerDiv = parentItem.querySelector('.video-player');
+                const iframe = document.createElement('iframe');
+                iframe.setAttribute('width', '560');
+                iframe.setAttribute('height', '315');
+                iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}`);
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allowfullscreen', 'true');
+
+                playerDiv.appendChild(iframe);
+                playerDiv.style.display = 'block';
+            });
+        });
+    }
+});
+
+
+    </script>
+</body>
+</html>
