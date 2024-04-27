@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Список видео с YouTube</title>
+    <title>Список відео с YouTube</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="istockphoto-1331574354.jpg">
     <style>
         body {
             font-family: Arial, sans-serif;
             padding: 10px;
-            background-color: #f7f7f7;
+            background-color: #e0f2f1;
         }
 
         h1 {
-            font-size: 20px;
+            font-size: 30px;
             text-transform: uppercase;
             text-align: center;
             color: #333;
@@ -36,23 +36,23 @@
     </style>
 </head>
 <body>
-    <h1>Список видео с YouTube</h1>
+    <h1>Церква "Дім Євангелія"</h1>
   
-    <p>Церква "Дім Євангелія" м Суми.</p>
-    <p style="font-size: smaller; color: green;">[Відео записи.]</p>
+    <p>Збірник відео записів .</p>
+    <p style="font-size: smaller; color: green;">[Головна сторінка]</p>
     <nav>
         <ul>
             <li><a href="index.html">Головна</a></li>
             <li><a href="video_max.html">Всі записи служінь (<span id="videoCount">0</span>)</a></li>
             <li><a href="video_other.html">Другі відео</a></li>
-            <li><a href="radio.html">Онлайн радіо</a></li>
+	    <li><a href="radio.html">Онлайн радіо</a></li>
         </ul>
     </nav>
     <div id="playlistInfo"></div>
     <div id="players"></div>
 
     <script>
-              // Функция для загрузки содержимого плейлиста
+             // Функция для загрузки содержимого плейлиста
         async function loadPlaylist(url) {
             const response = await fetch(url);
             const playlistContent = await response.text();
