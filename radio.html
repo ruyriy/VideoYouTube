@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Онлайн радио</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            color: #fff;
+        }
+        h1, h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        h3 {
+            text-align: center; /* Центрируем текст */
+            font-size: 16px; /* Уменьшаем размер шрифта */
+            color: #FF5733; /* Задаем другой цвет */
+            margin-top: 10px; /* Уменьшаем отступ сверху */
+            margin-bottom: 10px; /* Уменьшаем отступ снизу */
+        }
+        #currentRadio {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #00FF00; /* Задаем другой цвет */
+        }
+        #radioPlayerContainer {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #radioPlayer {
+            width: 80%;
+            margin: 0 auto;
+        }
+        #radioMenu {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        #radioMenu li {
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        #radioMenu li a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        #radioMenu li a:hover {
+            background-color: #0056b3;
+            color: #fff;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    
+ <h3>Сбірка : (Дім Євангелія" м Суми., Украина)</h3>
+    
+<h1>Христианское радио онлайн.</h1>
+   
+    <!-- Меню радиостанций -->
+    <h2>Меню радиостанций</h2>
+    <ul id="radioMenu">
+        <li><a href="#" onclick="playRadio('https://rs.radioslovo.net:4055/stream', 'Чтение Нового Завета')">Чтение Нового Завета</a></li>
+        <li><a href="#" onclick="playRadio('https://rs.radioslovo.net:4165/stream', 'Ветхий Завет')">Ветхий Завет</a></li>
+        <li><a href="#" onclick="playRadio('https://online.svitle.org:6729/fm', 'СВІТЛЕ РАДІО ЕММАНУЇЛ')">СВІТЛЕ РАДІО ЕММАНУЇЛ</a></li>
+        <li><a href="#" onclick="playRadio('http://live.detskoeradio.org/radio/8010/radio.mp3', 'Детское христианское радио')">Детское христианское радио</a></li>
+        <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:4275/stream', 'Инструментальная Христианская музыка')">Инструментальная Христианская музыка</a></li>
+        <li><a href="#" onclick="playRadio('https://c13.radioboss.fm:18516/stream', 'Слово Благодати')">Слово Благодати</a></li>
+        <li><a href="#" onclick="playRadio('https://icecast.pereraadio.ee:9000/Semeinoje', 'Семейное Радио Эли')">Семейное Радио Эли</a></li>
+        <li><a href="#" onclick="playRadio('http://5.45.80.27:8000/new', 'Propovedi24 Новый завет')">Propovedi24 Новый завет</a></li>
+        <!-- Добавьте другие радиостанции по аналогии -->
+    </ul>
+
+    <!-- Плеер для радио -->
+    <div id="radioPlayerContainer">
+        <audio id="radioPlayer" controls>
+            <source src="" type="audio/mpeg">
+            Ваш браузер не поддерживает аудио элементы.
+        </audio>
+    </div>
+
+    <!-- Элемент для отображения текущей радиостанции -->
+    <div id="currentRadio"></div>
+
+ <script>
+    function playRadio(radioURL, radioName) {
+        var player = document.getElementById('radioPlayer');
+        player.src = radioURL;
+        player.play();
+        // Устанавливаем название радиостанции
+        document.getElementById('currentRadio').textContent = "Сейчас играет: " + radioName;
+    }
+</script>
+    <script src="audioServiceWorker.js"></script> <!-- Добавляем эту строку -->
+</body>
+</html>
