@@ -77,7 +77,9 @@
             overflow: hidden;
          }
 
-       
+nav ul li {
+    margin-bottom: 8px; /* Увеличиваем расстояние между элементами меню по вертикали на 10 пикселей */
+}       
         @media (max-width: 768px) {
             .video-player {
                 position: relative;
@@ -134,10 +136,9 @@
 </nav>
 
 
-
    <!-- Индикатор загрузки -->
     <div id="loader" style="display: none; text-align: center; margin-top:20px;">
-        <img src="Spinner-3.gif" alt="Loading..." width="50">
+        <img src="images/Spinner-3.gif" alt="Loading..." width="50">
         <p>Завантаження відео...</p>
     </div>
 
@@ -145,9 +146,9 @@
 
 
 
-<div class="content-section">
+<div class="content-section" id="sluzhinnya-anchor">
     <h2>
-        <img src="logo.jpg" alt="Аватар " class="video-avatar">
+        <img src="images/logo.jpg" alt="Аватар " class="video-avatar">
         Сбірка Проповідей
     </h2>
     <ul class="video-links" data-group="Проповідь"></ul>
@@ -156,16 +157,16 @@
 
 <div class="content-section">
     <h2>
-        <img src="logo.jpg" alt="Аватар " class="video-avatar">
+        <img src="images/logo.jpg" alt="Аватар " class="video-avatar">
         Відео збірка
     </h2>
     <ul class="video-links" data-group="Інше"></ul>
 </div>
 
 
-<div class="content-section">
+<div class="content-section" id="musical">
     <h2>
-        <img src="logo.jpg" alt="Аватар " class="video-avatar">
+        <img src="images/logo.jpg" alt="Аватар " class="video-avatar">
         Музична збірка
     </h2>
     <ul class="video-links" data-group="Музичне"></ul>
@@ -246,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function() {
         videoLink.href = '#';
 
         const videoImage = document.createElement('img');
-        videoImage.src = 'youtube_icon.png';
+        videoImage.src = 'images/youtube_icon.png';
         videoImage.alt = 'YouTube Icon';
 
         const videoIndexSpan = document.createElement('span');
@@ -297,7 +298,17 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-
+    window.onload = function() {
+        var hash = window.location.hash;
+        if(hash) {
+            var element = document.querySelector(hash);
+            if(element) {
+               setTimeout(function() {
+                element.scrollIntoView();
+                }, 100);
+            }
+        }
+    }
     </script>
 
 
