@@ -37,11 +37,11 @@
         }
         #radioMenu li a {
             display: block;
-            padding: 10px 20px;
+            padding: 10px 0; /* изменено */
             background-color: #007bff;
             color: #fff;
             text-decoration: none;
-            border-radius: 25px; /* изменено на 25px */
+            border-radius: 25px;
             transition: background-color 0.3s, color 0.3s;
         }
         #radioMenu li a:hover {
@@ -59,7 +59,7 @@
             margin-bottom: 20px;
         }
         #radioPlayer {
-            width: 80%;
+            width: 60%; /* изменено */
             margin: 0 auto;
         }
     </style>
@@ -70,6 +70,9 @@
     <h1>Христианское радио онлайн</h1>
     <h3>Сбірка : (Дім Євангелія" м Суми., Украина)</h3>
 </header>
+
+<!-- Элемент для отображения текущей радиостанции -->
+<div id="currentRadio"></div>
 
 <!-- Меню радиостанций -->
 <ul id="radioMenu">
@@ -90,9 +93,6 @@
         Ваш браузер не поддерживает аудио элементы.
     </audio>
 </div>
-
-<!-- Элемент для отображения текущей радиостанции -->
-<div id="currentRadio"></div>
 
 <script>
     function playRadio(radioURL, radioName) {
