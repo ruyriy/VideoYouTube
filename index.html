@@ -26,12 +26,29 @@
             margin-bottom: 20px; /* Отступ между плеерами */
         }
 
+
+
 nav ul li {
-    margin-bottom: 8px; /* Увеличиваем расстояние между элементами меню по вертикали на 10 пикселей */
+    margin-bottom: 8px; /* Увеличиваем расстояние между элементами меню по вертикали на 8 пикселей */
+}
+
+nav ul li a {
+    text-decoration: none; /* Убираем подчеркивание у ссылок */
+    color: #333; /* Цвет текста ссылок */
+    width: 380px; /* Фиксированная ширина элементов меню */
+    display: block; /* Делаем элементы меню блочными, чтобы задать ширину */
+    padding: 8px 16px; /* Внутренний отступ у ссылок */
+    background-color: #fff; /* Цвет фона ссылок */
+    border-radius: 4px; /* Закругляем углы ссылок */
+    transition: background-color 0.3s ease; /* Плавное изменение цвета фона при наведении */
 }
 
 
-        @media (max-width: 768px) {
+nav ul ul li {
+    margin-left: 20px; /* Сдвигаем элементы подменю вправо на два пикселя */
+} 
+
+       @media (max-width: 768px) {
             .player {
                 width: 80%; /* Полная ширина плеера для мобильных устройств */
                 height: 180px; /* Высота плеера для мобильных устройств */
@@ -47,16 +64,16 @@ nav ul li {
     <p style="font-size: smaller; color: green;">[Головна сторінка]</p>
     <nav>
         <ul>
-            <li><a href="index.html">Головна</a></li>
-            <li><a href="video_max.html">Всі записи служінь (<span id="videoCount">0</span>)</a></li>
-            <li><a href="video_other.html">Другі відео</a></li>
+            <li><a href="index.html">>Головна</a></li>
+            <li><a href="video_max.html">>Всі записи служінь (<span id="videoCount">0</span>)</a></li>
+            <li><a href="video_other.html">>Другі відео :</a></li>
 
             <ul>
                
                <li><a href="video_other.html#sluzhinnya-anchor">Збірки проповідей</a></li>
 	       <li><a href="video_other.html#musical">Музична християнська сбірка</a></li>
             </ul>
-            <li><a href="radio.html">Онлайн християнське радіо</a></li>
+            <li><a href="radio.html">>Онлайн християнське радіо</a></li>
         </ul>
     </nav>
     <div id="playlistInfo"></div>
