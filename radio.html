@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="radio1.jpg">
-    <title>Християнське радіо онлайн</title>
-    
+    <title>Онлайн радио</title>
 
     <style>
         /* Общие стили */
@@ -22,11 +21,11 @@
             text-align: center;
         }
         h1 {
-            font-size: 32px;
+            font-size: 30px;
             margin: 0;
         }
         h3 {
-            font-size: 18px;
+            font-size: 16px;
             color: #FF5733;
             margin: 10px 0;
         }
@@ -64,6 +63,18 @@
             transition: background-color 0.3s, color 0.3s;
             width: 60%; /* изменено */
             margin: 0 auto; /* добавлено */
+            /* Анимация */
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        /* Анимация при наведении */
+        #radioMenu li a:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        /* Стили для активной кнопки */
+        #radioMenu li a.active {
+            background-color: #00cc66; /* Зеленый цвет */
         }
 
         /* Стили для мобильных устройств */
@@ -81,10 +92,12 @@
 <body>
 
 <header>
-    <h1>Християнське радіо онлайн</h1>
+    <h1>Христианское радио онлайн</h1>
     <h3>Сбірка : (Дім Євангелія" м Суми., Украина)</h3>
 </header>
 
+<!-- Элемент для отображения текущей радиостанции -->
+<div id="currentRadio"></div>
 
 <!-- Меню радиостанций -->
 <ul id="radioMenu">
@@ -98,17 +111,7 @@
     <li><a href="#" onclick="playRadio('https://icecast.pereraadio.ee:9000/Semeinoje', 'Семейное Радио Эли')">Семейное Радио Эли</a></li>
     <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:4145/stream', '«Открытое Слово» Авто радио')">«Открытое Слово» Авто радио</a></li>
     <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:4395/radio?1714579709762', '«Открытое Слово» христианское радио')">«Открытое Слово» христианское радио</a></li>
-  
-
-
-
-
-    <!-- Добавьте другие радиостанции по аналогии -->
 </ul>
-
-
-<!-- Элемент для отображения текущей радиостанции -->
-<div id="currentRadio"></div>
 
 <!-- Плеер для радио -->
 <div id="radioPlayerContainer">
@@ -125,6 +128,15 @@
         player.play();
         // Устанавливаем название радиостанции
         document.getElementById('currentRadio').textContent = "Сейчас играет: " + radioName;
+
+        // Отменяем активное состояние всех кнопок
+        var buttons = document.querySelectorAll('#radioMenu li a');
+        buttons.forEach(function(button) {
+            button.classList.remove('active');
+        });
+
+        // Устанавливаем активное состояние для нажатой кнопки
+        event.target.classList.add('active');
     }
 </script>
 <script src="audioServiceWorker.js"></script> <!-- Добавляем эту строку -->
