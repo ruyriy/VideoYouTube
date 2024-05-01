@@ -29,13 +29,6 @@
             color: #FF5733;
             margin: 10px 0;
         }
-        #currentRadio {
-            text-align: center;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            font-weight: bold;
-            color: #00FF00;
-        }
         #radioPlayerContainer {
             text-align: center;
             margin-bottom: 20px;
@@ -61,7 +54,7 @@
             text-decoration: none;
             border-radius: 25px;
             transition: background-color 0.3s, color 0.3s;
-            width: 60%; /* изменено */
+            width: 50%; /* изменено */
             margin: 0 auto; /* добавлено */
             /* Анимация */
             transition: background-color 0.3s, transform 0.3s;
@@ -77,11 +70,22 @@
             background-color: #00cc66; /* Зеленый цвет */
         }
 
-        /* Стили для мобильных устройств */
+        /* Стили для анимации радио */
+        #radioAnimationContainer {
+            text-align: center; /* Центрируем содержимое */
+            margin-bottom: 20px;
+        }
+        #radioStaticAnimation {
+            display: block; /* Показываем статическую иконку */
+            margin: auto; /* Центрируем статическую иконку */
+        }
+        #radioAnimation {
+            display: none; /* Скрываем динамическую анимацию */
+            margin: auto; /* Центрируем динамическую анимацию */
+        }
+
+        /* Медиа-запросы для изменения ширины кнопок в режиме мобильного устройства */
         @media only screen and (max-width: 768px) {
-            #radioPlayer {
-                width: 80%; /* Уменьшаем ширину плеера для мобильных */
-            }
             #radioMenu li a {
                 width: 100%; /* Растягиваем кнопки на всю ширину экрана */
                 margin: 0; /* Убираем отступы */
@@ -96,8 +100,11 @@
     <h3>Сбірка : (Дім Євангелія" м Суми., Украина)</h3>
 </header>
 
-<!-- Элемент для отображения текущей радиостанции -->
-<div id="currentRadio"></div>
+<!-- Статическое изображение анимации радио (показывается по умолчанию) -->
+<div id="radioAnimationContainer">
+    <img id="radioStaticAnimation" src="images/P0vM.png" alt="Иконка радио">
+    <img id="radioAnimation" src="images/P0vM.gif" alt="Анимация радио">
+</div>
 
 <!-- Меню радиостанций -->
 <ul id="radioMenu">
@@ -111,6 +118,7 @@
     <li><a href="#" onclick="playRadio('https://icecast.pereraadio.ee:9000/Semeinoje', 'Семейное Радио Эли')">Семейное Радио Эли</a></li>
     <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:4145/stream', '«Открытое Слово» Авто радио')">«Открытое Слово» Авто радио</a></li>
     <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:4395/radio?1714579709762', '«Открытое Слово» христианское радио')">«Открытое Слово» христианское радио</a></li>
+    <!-- Добавьте другие радиостанции по аналогии -->
 </ul>
 
 <!-- Плеер для радио -->
@@ -122,22 +130,48 @@
 </div>
 
 <script>
-    function playRadio(radioURL, radioName) {
-        var player = document.getElementById('radioPlayer');
-        player.src = radioURL;
-        player.play();
-        // Устанавливаем название радиостанции
-        document.getElementById('currentRadio').textContent = "Сейчас играет: " + radioName;
+    var staticAnimation = document.getElementById('radioStaticAnimation');
+    var dynamicAnimation = document.getElementById('radioAnimation');
+    var radioPlayer = document.getElementById('radioPlayer');
 
-        // Отменяем активное состояние всех кнопок
+    function playRadio(radioURL, radioName) {
+        radioPlayer.src = radioURL;
+        radioPlayer.play();
+        // Устанавливаем активное состояние для нажатой кнопки
         var buttons = document.querySelectorAll('#radioMenu li a');
         buttons.forEach(function(button) {
             button.classList.remove('active');
         });
-
-        // Устанавливаем активное состояние для нажатой кнопки
         event.target.classList.add('active');
+
+        // Останавливаем анимацию и показываем динамическую анимацию
+        stopAndShowDynamicAnimation();
+
+        // Устанавливаем название радиостанции
+        document.getElementById('currentRadio').textContent = "Сейчас играет: " + radioName;
     }
+
+    // Функция для остановки анимации и показа динамической анимации
+    function stopAndShowDynamicAnimation() {
+        staticAnimation.style.display = 'none'; // Скрываем статическое изображение
+        dynamicAnimation.style.display = 'block'; // Показываем динамическое GIF-изображение
+    }
+
+    // Функция для остановки анимации и показа статической иконки
+    function stopAndShowStaticAnimation() {
+        staticAnimation.style.display = 'block'; // Показываем статическое изображение
+        dynamicAnimation.style.display = 'none'; // Скрываем динамическое GIF-изображение
+    }
+
+    // Слушатель события окончания воспроизведения радио
+    radioPlayer.addEventListener('ended', function() {
+        stopAndShowStaticAnimation(); // Показываем статическую иконку после окончания воспроизведения радиостанции
+    });
+
+    // Слушатель события паузы радио
+    radioPlayer.addEventListener('pause', function() {
+        stopAndShowStaticAnimation(); // Показываем статическую иконку при паузе радиостанции
+    });
 </script>
 <script src="audioServiceWorker.js"></script> <!-- Добавляем эту строку -->
 </body>
