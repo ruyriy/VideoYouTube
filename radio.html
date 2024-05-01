@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Онлайн радио</title>
+    <meta property="og:image" content="https://example.com/path/to/your/image.jpg"> <!-- Замените на ссылку на ваше изображение -->
+
     <style>
+        /* Общие стили */
         body {
             background-color: #222;
             color: #fff;
@@ -26,6 +29,21 @@
             color: #FF5733;
             margin: 10px 0;
         }
+        #currentRadio {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #00FF00;
+        }
+        #radioPlayerContainer {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #radioPlayer {
+            width: 50%; /* По умолчанию для ПК */
+            margin: 0 auto;
+        }
         #radioMenu {
             list-style-type: none;
             padding: 0;
@@ -43,24 +61,19 @@
             text-decoration: none;
             border-radius: 25px;
             transition: background-color 0.3s, color 0.3s;
-        }
-        #radioMenu li a:hover {
-            background-color: #0056b3;
-        }
-        #currentRadio {
-            text-align: center;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            font-weight: bold;
-            color: #00FF00;
-        }
-        #radioPlayerContainer {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        #radioPlayer {
             width: 60%; /* изменено */
-            margin: 0 auto;
+            margin: 0 auto; /* добавлено */
+        }
+
+        /* Стили для мобильных устройств */
+        @media only screen and (max-width: 768px) {
+            #radioPlayer {
+                width: 80%; /* Уменьшаем ширину плеера для мобильных */
+            }
+            #radioMenu li a {
+                width: 100%; /* Растягиваем кнопки на всю ширину экрана */
+                margin: 0; /* Убираем отступы */
+            }
         }
     </style>
 </head>
