@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="radio1.jpg">
-    <title>Онлайн радио</title>
+    <title>Християнське онлайн радіо</title>
     
 
     <style>
@@ -81,14 +81,14 @@
 <body>
 
 <header>
-    <h1>Христианское радио онлайн</h1>
+    <h1>Християнське радіо онлайн</h1>
     <h3>Сбірка : (Дім Євангелія" м Суми., Украина)</h3>
 </header>
 
 <!-- Элемент для отображения текущей радиостанции -->
 <div id="currentRadio"></div>
 
-<!-- Меню радиостанций -->
+<!-- Меню радіостанцій -->
 <ul id="radioMenu">
 
     <li><a href="#" onclick="playRadio('https://rs.radioslovo.net:4055/stream', 'Чтение Нового Завета')">Чтение Нового Завета</a></li>
@@ -100,11 +100,6 @@
     <li><a href="#" onclick="playRadio('https://icecast.pereraadio.ee:9000/Semeinoje', 'Семейное Радио Эли')">Семейное Радио Эли</a></li>
     <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:4145/stream', '«Открытое Слово» Авто радио')">«Открытое Слово» Авто радио</a></li>
     <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:4395/radio?1714579709762', '«Открытое Слово» христианское радио')">«Открытое Слово» христианское радио</a></li>
-  
-
-
-
-
     <!-- Добавьте другие радиостанции по аналогии -->
 </ul>
 
@@ -122,7 +117,7 @@
         player.src = radioURL;
         player.play();
         // Устанавливаем название радиостанции
-        document.getElementById('currentRadio').textContent = "Сейчас играет: " + radioName;
+        document.getElementById('currentRadio').textContent = "Ефір: " + radioName;
     }
 </script>
 <script src="audioServiceWorker.js"></script> <!-- Добавляем эту строку -->
