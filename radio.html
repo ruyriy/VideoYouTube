@@ -29,6 +29,15 @@
             color: #00FF00;
             margin: 10px 0;
         }
+
+        #currentRadio {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 12px;
+            color: #FF5733;
+        }
         #radioPlayerContainer {
             text-align: center;
             margin-bottom: 20px;
@@ -58,6 +67,13 @@
             margin: 0 auto; /* добавлено */
             /* Анимация */
             transition: background-color 0.3s, transform 0.3s;
+            opacity: 0.8; /* Устанавливаем прозрачность */
+    padding-left: 40px; /* Добавляем отступ слева для иконки */
+    background-image: url('images/play.png'); /* Замените 'your-icon-url.png' на путь к вашей иконке */
+    background-repeat: no-repeat;
+    background-position: 20px center; /* Выравниваем иконку по центру по вертикали */
+    background-size: 16px 16px; /* Устанавливаем размер иконки */
+
         }
         /* Анимация при наведении */
         #radioMenu li a:hover {
@@ -107,7 +123,7 @@
 
 <header>
     <h1>Християнське онлайн радіо</h1>
-    <h3>Сбірка: (Дім Євангелія" м Суми., Украина)</h3>
+    <h3>Сбірка: (Дім Євангелія" м Суми, Украина © 2024 р.)</h3>
 </header>
 
 <!-- Статическое изображение анимации радио (показывается по умолчанию) -->
@@ -115,6 +131,9 @@
     <img id="radioStaticAnimation" src="images/5uwq.png" alt="Иконка радио">
     <img id="radioAnimation" src="images/5uwq.gif" alt="Анимация радио">
 </div>
+
+<!-- Элемент для отображения текущей радиостанции -->
+<div id="currentRadio"></div>
 
 <!-- Меню радиостанций -->
 <ul id="radioMenu">
@@ -161,7 +180,7 @@ function playRadio(radioURL, radioName, event) {
     stopAndShowDynamicAnimation();
 
     // Устанавливаем название радиостанции
-    document.getElementById('currentRadio').textContent = "Сейчас играет: " + radioName;
+    document.getElementById('currentRadio').textContent = "Зараз відтворює: " + radioName;
 }
 
 
