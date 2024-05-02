@@ -30,6 +30,10 @@
             margin: 10px 0;
         }
 
+        a {
+            font-size: 12px;
+            color: #FFFF00;
+        }
         #currentRadio {
             text-align: center;
             margin-top: 20px;
@@ -123,7 +127,7 @@
 
 <header>
     <h1>Християнське онлайн радіо</h1>
-    <h3>Збірка: (Дім Євангелія" м Суми, Украина © 2024 р.)</h3>
+    <h3>Сбірка: (Дім Євангелія" м Суми, Украина © 2024 р.)</h3>
 </header>
 
 <!-- Статическое изображение анимации радио (показывается по умолчанию) -->
@@ -137,10 +141,16 @@
 
 <!-- Меню радиостанций -->
 <ul id="radioMenu">
-
+    
+    <a>Круглосуточное вещание аудио Библии. Слушайте и ищите Господа вместе с нами!</a>    
+ 
     <li><a href="#" onclick="playRadio('https://rs.radioslovo.net:4055/stream', 'Чтение Нового Завета', event)">Чтение Нового Завета</a></li>
     <li><a href="#" onclick="playRadio('https://rs.radioslovo.net:4165/stream', 'Ветхий Завет', event)">Ветхий Завет</a></li>
+    <li><a href="#" onclick="playRadio('https://www.liveradio.es/http://radiopiligrim.ru:8000/bible', 'Пилигрим-Библия Новый Завет', event)">Пилигрим-Библия Новый Завет</a></li> 
     <li><a href="#" onclick="playRadio('https://online.svitle.org:6729/fm', 'СВІТЛЕ РАДІО ЕММАНУЇЛ', event)">СВІТЛЕ РАДІО ЕММАНУЇЛ</a></li>
+
+    <a>Музыкальное, детское служение</a> 
+
     <li><a href="#" onclick="playRadio('http://live.detskoeradio.org/radio/8010/radio.mp3', 'Детское христианское радио', event)">Детское христианское радио</a></li>
     <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:4275/stream', 'Инструментальная Христианская музыка', event)">Инструментальная Христианская музыка</a></li>
     <li><a href="#" onclick="playRadio('https://c13.radioboss.fm:18516/stream', 'Слово Благодати', event)">Слово Благодати</a></li>
@@ -148,6 +158,13 @@
     <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:4145/stream', '«Открытое Слово» Авто радио', event)">«Открытое Слово» Авто радио</a></li>
     <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:4395/radio?1714579709762', '«Открытое Слово» христианское радио', event)">«Открытое Слово» христианское радио</a></li>
     <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:5005/radio?1714621827960', '«Открытое Слово» христианское радио укр.', event)">«Открытое Слово» христианское радио укр.</a></li>
+    <li><a href="#" onclick="playRadio('https://d6ee837f-fdca-4f41-81b1-cfca577979f5.pub.instances.scw.cloud:8440/russian_music.mp3', 'RadioMV Музыка', event)">RadioMV Музыка</a></li>
+    <li><a href="#" onclick="playRadio('https://nlradio.stream:8000/nlradio-low.aac', 'Новая жизнь', event)">Новая жизнь</a></li>
+
+
+
+
+
     <!-- Добавьте другие радиостанции по аналогии -->
 </ul>
 
