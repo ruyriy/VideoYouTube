@@ -84,13 +84,23 @@
             margin: auto; /* Центрируем динамическую анимацию */
         }
 
+        #radioStaticAnimation,
+        #radioAnimation {
+           max-width: 80px; /* устанавливаем максимальную ширину изображений */
+           max-height: 80px; /* устанавливаем максимальную высоту изображений */
+        }
+
         /* Медиа-запросы для изменения ширины кнопок в режиме мобильного устройства */
         @media only screen and (max-width: 768px) {
             #radioMenu li a {
                 width: 100%; /* Растягиваем кнопки на всю ширину экрана */
                 margin: 0; /* Убираем отступы */
             }
+       #radioPlayer {
+        width: 100%; /* Растягиваем плеер на всю ширину экрана */
         }
+      }
+
     </style>
 </head>
 <body>
@@ -102,22 +112,22 @@
 
 <!-- Статическое изображение анимации радио (показывается по умолчанию) -->
 <div id="radioAnimationContainer">
-    <img id="radioStaticAnimation" src="images/P0vM.png" alt="Иконка радио">
-    <img id="radioAnimation" src="images/P0vM.gif" alt="Анимация радио">
+    <img id="radioStaticAnimation" src="images/5uwq.png" alt="Иконка радио">
+    <img id="radioAnimation" src="images/5uwq.gif" alt="Анимация радио">
 </div>
 
 <!-- Меню радиостанций -->
 <ul id="radioMenu">
 
-    <li><a href="#" onclick="playRadio('https://rs.radioslovo.net:4055/stream', 'Чтение Нового Завета')">Чтение Нового Завета</a></li>
-    <li><a href="#" onclick="playRadio('https://rs.radioslovo.net:4165/stream', 'Ветхий Завет')">Ветхий Завет</a></li>
-    <li><a href="#" onclick="playRadio('https://online.svitle.org:6729/fm', 'СВІТЛЕ РАДІО ЕММАНУЇЛ')">СВІТЛЕ РАДІО ЕММАНУЇЛ</a></li>
-    <li><a href="#" onclick="playRadio('http://live.detskoeradio.org/radio/8010/radio.mp3', 'Детское христианское радио')">Детское христианское радио</a></li>
-    <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:4275/stream', 'Инструментальная Христианская музыка')">Инструментальная Христианская музыка</a></li>
-    <li><a href="#" onclick="playRadio('https://c13.radioboss.fm:18516/stream', 'Слово Благодати')">Слово Благодати</a></li>
-    <li><a href="#" onclick="playRadio('https://icecast.pereraadio.ee:9000/Semeinoje', 'Семейное Радио Эли')">Семейное Радио Эли</a></li>
-    <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:4145/stream', '«Открытое Слово» Авто радио')">«Открытое Слово» Авто радио</a></li>
-    <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:4395/radio?1714579709762', '«Открытое Слово» христианское радио')">«Открытое Слово» христианское радио</a></li>
+    <li><a href="#" onclick="playRadio('https://rs.radioslovo.net:4055/stream', 'Чтение Нового Завета', event)">Чтение Нового Завета</a></li>
+    <li><a href="#" onclick="playRadio('https://rs.radioslovo.net:4165/stream', 'Ветхий Завет', event)">Ветхий Завет</a></li>
+    <li><a href="#" onclick="playRadio('https://online.svitle.org:6729/fm', 'СВІТЛЕ РАДІО ЕММАНУЇЛ', event)">СВІТЛЕ РАДІО ЕММАНУЇЛ</a></li>
+    <li><a href="#" onclick="playRadio('http://live.detskoeradio.org/radio/8010/radio.mp3', 'Детское христианское радио', event)">Детское христианское радио</a></li>
+    <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:4275/stream', 'Инструментальная Христианская музыка', event)">Инструментальная Христианская музыка</a></li>
+    <li><a href="#" onclick="playRadio('https://c13.radioboss.fm:18516/stream', 'Слово Благодати', event)">Слово Благодати</a></li>
+    <li><a href="#" onclick="playRadio('https://icecast.pereraadio.ee:9000/Semeinoje', 'Семейное Радио Эли', event)">Семейное Радио Эли</a></li>
+    <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:4145/stream', '«Открытое Слово» Авто радио', event)">«Открытое Слово» Авто радио</a></li>
+    <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:4395/radio?1714579709762', '«Открытое Слово» христианское радио', event)">«Открытое Слово» христианское радио</a></li>
     <!-- Добавьте другие радиостанции по аналогии -->
 </ul>
 
@@ -134,22 +144,26 @@
     var dynamicAnimation = document.getElementById('radioAnimation');
     var radioPlayer = document.getElementById('radioPlayer');
 
-    function playRadio(radioURL, radioName) {
-        radioPlayer.src = radioURL;
-        radioPlayer.play();
-        // Устанавливаем активное состояние для нажатой кнопки
-        var buttons = document.querySelectorAll('#radioMenu li a');
-        buttons.forEach(function(button) {
-            button.classList.remove('active');
-        });
-        event.target.classList.add('active');
+function playRadio(radioURL, radioName, event) {
+    event.preventDefault(); // Предотвращаем стандартное поведение элемента
 
-        // Останавливаем анимацию и показываем динамическую анимацию
-        stopAndShowDynamicAnimation();
+    radioPlayer.src = radioURL;
+    radioPlayer.play();
+    // Устанавливаем активное состояние для нажатой кнопки
+    var buttons = document.querySelectorAll('#radioMenu li a');
+    buttons.forEach(function(button) {
+        button.classList.remove('active');
+    });
+    event.target.classList.add('active');
 
-        // Устанавливаем название радиостанции
-        document.getElementById('currentRadio').textContent = "Сейчас играет: " + radioName;
-    }
+    // Останавливаем анимацию и показываем динамическую анимацию
+    stopAndShowDynamicAnimation();
+
+    // Устанавливаем название радиостанции
+    document.getElementById('currentRadio').textContent = "Сейчас играет: " + radioName;
+}
+
+
 
     // Функция для остановки анимации и показа динамической анимации
     function stopAndShowDynamicAnimation() {
