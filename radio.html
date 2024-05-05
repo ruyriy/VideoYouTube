@@ -141,8 +141,6 @@
 
 <!-- Меню радиостанций -->
 <ul id="radioMenu">
-    
-    <blockquote>Круглосуточное вещание аудио Библии. Слушайте и ищите Господа вместе с нами!</blockquote>    
  
     <li><a href="#" onclick="playRadio('https://rs.radioslovo.net:4055/stream', 'Чтение Нового Завета', event)">Чтение Нового Завета</a></li>
     <li><a href="#" onclick="playRadio('https://rs.radioslovo.net:4165/stream', 'Ветхий Завет', event)">Ветхий Завет</a></li>
@@ -175,7 +173,7 @@
         Ваш браузер не поддерживает аудио элементы.
     </audio>
 </div>
-
+ 
 <script>
     var staticAnimation = document.getElementById('radioStaticAnimation');
     var dynamicAnimation = document.getElementById('radioAnimation');
@@ -225,5 +223,11 @@ function playRadio(radioURL, radioName, event) {
     });
 </script>
 <script src="audioServiceWorker.js"></script> <!-- Добавляем эту строку -->
+
+
+
+   <footer style="background-color: #222; padding: 20px; text-align: center; border-top: 1px solid #222; margin-top: 50px;">
+        <p>м. Суми, версія збірки 2: © 2024 р.</p>
+    </footer>
 </body>
 </html>

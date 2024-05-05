@@ -77,9 +77,7 @@ nav ul li a {
             <li><a href="index.html">Головна</a></li>
             <li><a href="video_max.html">Всі записи служінь (<span id="videoCount">0</span>)</a></li>
             <li><a href="video_other.html">Другі відео :</a></li>
-
-            <ul>
-               
+            <ul>               
                <li><a href="video_other.html#sluzhinnya-anchor">Збірки проповідей</a></li>
 	       <li><a href="video_other.html#musical">Музична християнська сбірка</a></li>
             </ul>
@@ -91,7 +89,7 @@ nav ul li a {
     <div id="players"></div>
 
     <script>
-        // Функция для загрузки содержимого плейлиста
+             // Функция для загрузки содержимого плейлиста
         async function loadPlaylist(url) {
             const response = await fetch(url);
             const playlistContent = await response.text();
@@ -110,36 +108,32 @@ nav ul li a {
         async function createPlayers() {
             const playlistUrl = 'https://raw.githubusercontent.com/ruyriy/VideoYouTube/main/videos.txt';
             const playlistLines = await loadPlaylist(playlistUrl);
+            const videos = [];
 
-            // Преобразуем каждую строку плейлиста в объект видео с информацией о дате и индексе
-            const videos = playlistLines.map((line, index) => {
+            // Разбираем плейлист и находим видео с датами
+            playlistLines.forEach(line => {
                 const parts = line.split(':');
                 if (parts.length >= 5) {
                     const videoId = parts[2];
                     const dateString = parts[4];
                     const dateParts = dateString.split('.');
+                    // Интерпретируем дату из строки в формате "день.месяц.год"
                     const date = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
-            console.log('Date for video', videoId, ':', date); // Выводим дату в консоль
-
-                    return { videoId, date, index };
+                    videos.push({ videoId, date });
                 }
             });
 
-            // Отфильтруем и отсортируем видео по дате и индексу строки плейлиста
-            const sortedVideos = videos.filter(video => video).sort((a, b) => {
-                // Сравниваем даты
-                if (a.date.getTime() !== b.date.getTime()) {
-                    return b.date - a.date;
-                } else {
-                    // Если даты равны, сравниваем индексы строки плейлиста
-                    return a.index - b.index;
-                }
-            });
+            // Сортируем видео по дате (от новых к старым)
+            videos.sort((a, b) => b.date - a.date);
 
-            // Создадим плееры только для четырех последних видео
+            // Выводим информацию о количестве видео в плейлисте
+            const videoCountSpan = document.getElementById('videoCount');
+            videoCountSpan.textContent = videos.length;
+
+            // Создаем четыре плеера и загружаем в них последние видео
             const playersContainer = document.getElementById('players');
-            for (let i = 0; i < 4 && i < sortedVideos.length; i++) {
-                const player = createYouTubePlayer(sortedVideos[i].videoId);
+            for (let i = 0; i < 4 && i < videos.length; i++) {
+                const player = createYouTubePlayer(videos[i].videoId);
                 playersContainer.appendChild(player);
             }
         }
