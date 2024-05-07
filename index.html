@@ -132,7 +132,7 @@ nav ul li a {
 
             // Создаем четыре плеера и загружаем в них последние видео
             const playersContainer = document.getElementById('players');
-            for (let i = 0; i < 4 && i < videos.length; i++) {
+            for (let i = 0; i < 5 && i < videos.length; i++) {
                 const player = createYouTubePlayer(videos[i].videoId);
                 playersContainer.appendChild(player);
             }
