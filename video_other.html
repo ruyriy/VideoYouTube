@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const unknownVideos = [];
 
         videos.forEach(video => {
-            const [videoIndex, group, videoId, videoTitle] = video.split(':');
+            const [videoIndex, group, videoId, videoTitle] = video.split('§');
             if (!videoGroups[group]) {
                 videoGroups[group] = [];
             }
