@@ -78,8 +78,25 @@
          }
 
 nav ul li {
-    margin-bottom: 8px; /* Увеличиваем расстояние между элементами меню по вертикали на 10 пикселей */
-}       
+    margin-bottom: 1px; /* Збільшуємо відстань між елементами меню по вертикалі на 10 пікселів */
+}
+
+nav ul li a {
+    text-decoration: none; /* Відміняємо підкреслення у посилань */
+    color: #555; /* Колір тексту посилань */
+    width: 200px; /* Фіксована ширина елементів меню */
+    display: block; /* Робимо елементи меню блочними, щоб задати ширину */
+    padding: 4px 10px; /* Внутрішній відступ у посилань */
+    background-color: #f5f5f5; /* Колір фону посилань */
+    border-radius: 5px; /* Закруглюємо кути посилань */
+    transition: background-color 0.3s ease; /* Плавна зміна кольору фону при наведенні */
+    font-size: 16px; /* Зменшуємо розмір шрифту меню */
+}
+
+nav ul li a:hover {
+    background-color: #ddd; /* Колір фону посилань при наведенні */
+}
+
         @media (max-width: 768px) {
             .video-player {
                 position: relative;
@@ -135,8 +152,8 @@ nav ul li {
                <li><a href="video_other.html#sluzhinnya-anchor">Збірки проповідей</a></li>
 	       <li><a href="video_other.html#musical">Музична християнська сбірка</a></li>
             </ul>
-            <li><a href="radio.html">Онлайн християнське радіо1</a></li>
-            <li><a href="radio_player.html">Онлайн християнське радіо2</a></li>
+            <li><a href="radio.html">Християнське радіо 1</a></li>
+            <li><a href="radio_player.html">Християнське радіо 2</a></li>
         </ul>
     </nav>
 
