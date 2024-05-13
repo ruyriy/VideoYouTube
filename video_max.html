@@ -5,8 +5,171 @@
     <title>Список видео с YouTube</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="istockphoto-626708040-612x612.jpg">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            background-color: #f7f7f7;
+        }
 
-        
+        /* Стили для контейнеров */
+        .content-section {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            padding: 20px;
+            background-image: url('images/icon15.jpg'); /* Путь к вашему фоновому изображению */
+            background-size: cover; /* Масштабирование изображения */
+            background-repeat: no-repeat; /* Запрет повторения фонового изображения */
+            background-position: center; /* Центрирование фонового изображения */
+        }
+
+        .content-section h2 {
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .video-links {
+            list-style-type: disc;
+            padding-left: 10px;
+        }
+
+        .video-item {
+            margin: 0;
+        }
+
+        .video-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s;
+            padding: 1px 1px;
+            border-radius: 4px;
+            flex-wrap: wrap;
+        }
+
+        .video-link .video-index {
+            color: #007bff;
+            margin-right: 10px;
+        }
+
+        /* Стили для основного логотипа */
+        .content-section .video-avatar {
+            width: 100px;  /* Установите желаемую ширину */
+            height: auto;  /* Автоматическое масштабирование высоты */
+        }
+
+        /* Стили для иконки YouTube */
+        .video-link img {
+            width: 50px;   /* Установите желаемую ширину */
+            height: auto;  /* Автоматическое масштабирование высоты */
+        }
+
+        .video-player {
+            display: none;
+            border-radius: 8px;
+            overflow: hidden;
+         }
+
+
+        .submenu {
+            display: none;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        label[for="services-toggle"],
+        label[for="preachers-toggle"] {
+            position: relative;
+        }
+
+        label[for="services-toggle"]:after,
+        label[for="preachers-toggle"]:after {
+            content: "▼";
+            position: absolute;
+            right: -20px; /* Сдвигаем на 5px вправо */
+        }
+
+        input[type="checkbox"]:checked + .submenu {
+            display: block;
+        }
+
+
+        @media (max-width: 768px) {
+            .video-player {
+                position: relative;
+                padding-bottom: 56.25%;
+                height: 0;
+                width: 100%;
+            }
+
+            .video-player iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .video-link .video-title {
+                font-size: 14px;
+            }
+
+            .content-section img {
+                width: 20px;
+                height: 20px;
+            }
+
+        }
+
+    
+nav ul li {
+    margin-bottom: 0px; /* Збільшуємо відстань між елементами меню по вертикалі на 10 пікселів */
+}
+
+nav ul li a {
+    text-decoration: none; /* Відміняємо підкреслення у посилань */
+    color: #555; /* Колір тексту посилань */
+    width: 250px; /* Фіксована ширина елементів меню */
+    display: block; /* Робимо елементи меню блочними, щоб задати ширину */
+    padding: 4px 10px; /* Внутрішній відступ у посилань */
+    background-color: #f5f5f5; /* Колір фону посилань */
+    border-radius: 5px; /* Закруглюємо кути посилань */
+    transition: background-color 0.3s ease; /* Плавна зміна кольору фону при наведенні */
+    font-size: 20px; /* Зменшуємо розмір шрифту меню */
+}
+
+nav ul li a:hover {
+    background-color: #ddd; /* Колір фону посилань при наведенні */
+}
+
+        @media (min-width: 769px) {
+            .video-player {
+                width: 560px;
+                height: 315px;
+            }
+
+            .content-section img {
+                width: 20px;
+                height: 20px;
+            }
+
+        }
+    </style>
+
+
+
+
+
+
+    
 <footer style="background-color: #f4f4f4; padding: 20px; text-align: center; border-top: 1px solid #ccc; margin-top: 50px;">
     <p>м. Суми, версія збірки: © 2024 р.</p>
 </footer>
