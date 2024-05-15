@@ -1,20 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Список видео с YouTube</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="istockphoto-626708040-612x612.jpg">
-
     <style>
-
         body {
             font-family: Arial, sans-serif;
             padding: 10px;
             background-color: #f7f7f7;
         }
 
-        /* Стили для контейнеров */
         .content-section {
             background-color: #fff;
             border: 1px solid #ddd;
@@ -22,10 +19,10 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 30px;
             padding: 20px;
-            background-image: url('images/icon15.jpg'); /* Путь к вашему фоновому изображению */
-            background-size: cover; /* Масштабирование изображения */
-            background-repeat: no-repeat; /* Запрет повторения фонового изображения */
-            background-position: center; /* Центрирование фонового изображения */
+            background-image: url('images/icon15.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
         .content-section h2 {
@@ -50,7 +47,7 @@
             text-decoration: none;
             color: #333;
             transition: background-color 0.3s;
-            padding: 1px 1px;
+            padding: 1px;
             border-radius: 4px;
             flex-wrap: wrap;
         }
@@ -60,24 +57,21 @@
             margin-right: 10px;
         }
 
-        /* Стили для основного логотипа */
         .content-section .video-avatar {
-            width: 100px;  /* Установите желаемую ширину */
-            height: auto;  /* Автоматическое масштабирование высоты */
+            width: 100px;
+            height: auto;
         }
 
-        /* Стили для иконки YouTube */
         .video-link img {
-            width: 50px;   /* Установите желаемую ширину */
-            height: auto;  /* Автоматическое масштабирование высоты */
+            width: 50px;
+            height: auto;
         }
 
         .video-player {
             display: none;
             border-radius: 8px;
             overflow: hidden;
-         }
-
+        }
 
         .submenu {
             display: none;
@@ -96,13 +90,12 @@
         label[for="preachers-toggle"]:after {
             content: "▼";
             position: absolute;
-            right: -20px; /* Сдвигаем на 5px вправо */
+            right: -20px;
         }
 
         input[type="checkbox"]:checked + .submenu {
             display: block;
         }
-
 
         @media (max-width: 768px) {
             .video-player {
@@ -128,29 +121,27 @@
                 width: 20px;
                 height: 20px;
             }
-
         }
 
-    
-nav ul li {
-    margin-bottom: 0px; /* Збільшуємо відстань між елементами меню по вертикалі на 10 пікселів */
-}
+        nav ul li {
+            margin-bottom: 0px;
+        }
 
-nav ul li a {
-    text-decoration: none; /* Відміняємо підкреслення у посилань */
-    color: #555; /* Колір тексту посилань */
-    width: 250px; /* Фіксована ширина елементів меню */
-    display: block; /* Робимо елементи меню блочними, щоб задати ширину */
-    padding: 4px 10px; /* Внутрішній відступ у посилань */
-    background-color: #f5f5f5; /* Колір фону посилань */
-    border-radius: 5px; /* Закруглюємо кути посилань */
-    transition: background-color 0.3s ease; /* Плавна зміна кольору фону при наведенні */
-    font-size: 20px; /* Зменшуємо розмір шрифту меню */
-}
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+            width: 250px;
+            display: block;
+            padding: 4px 10px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-size: 20px;
+        }
 
-nav ul li a:hover {
-    background-color: #ddd; /* Колір фону посилань при наведенні */
-}
+        nav ul li a:hover {
+            background-color: #ddd;
+        }
 
         @media (min-width: 769px) {
             .video-player {
@@ -162,207 +153,191 @@ nav ul li a:hover {
                 width: 20px;
                 height: 20px;
             }
-
         }
     </style>
 </head>
 <body>    
-     <h2>Церква "Дім Євангелія</h2>
-  
-    <p>Збірник відео записів .</p>
+    <h2>Церква "Дім Євангелія"</h2>
+    <p>Збірник відео записів.</p>
     <p style="font-size: smaller; color: green;">[Cторінка : Записи служінь]</p>
 
-<nav>
-    <ul>
-        <li><a href="index.html">Головна</a></li>
-        <li><a href="video_other.html">Другі відео</a></li>
-        <li>
-            <a>Всі записи служінь :</a>
-            <ul>               
-                <li><a href="#service">Служіння</a></li>
-                <li><a href="#praise_the_lord">Прославлення Господа</a></li>
-                <li><a>Проповідники :</a>
-                    <ul>
-                        <li><a href="#marioha">Марйоха</a></li>
-                        <li><a href="#mischenko">Міщенко</a></li>
-                        <li><a href="#buligin">Булигін</a></li>
-                        <li><a href="#zinchenko">Зінченко</a></li>
-                        <li><a href="#laba">Лаба</a></li>
-                        <li><a href="#parfylo">Парфило</a></li>
-                        <li><a href="#komisar">Комісар</a></li>
-                        <li><a href="#ivanchenko">Іванченко</a></li>
-                    </ul>
-                </li>
-                <li><a href="#youth_praise">Прославлення, Молодіжна</a></li>
-                <li><a href="#choir_singing">Хоровий спів</a></li>
-                <li><a href="#water_baptism">Водне хрещення</a></li>
-                <li><a href="#other_videos">Інші відео</a></li>
-            </ul>
-        </li>
-        <li><a href="radio.html">Християнське радіо 1</a></li>
-        <li><a href="radio_player.html">Християнське радіо 2</a></li>
-    </ul>
-</nav>
+    <nav>
+        <ul>
+            <li><a href="index.html">Головна</a></li>
+            <li><a href="video_other.html">Другі відео</a></li>
+            <li>
+                <a>Всі записи служінь :</a>
+                <ul>               
+                    <li><a href="#service">Служіння</a></li>
+                    <li><a href="#praise_the_lord">Прославлення Господа</a></li>
+                    <li><a>Проповідники :</a>
+                        <ul>
+                            <li><a href="#marioha">Марйоха</a></li>
+                            <li><a href="#mischenko">Міщенко</a></li>
+                            <li><a href="#buligin">Булигін</a></li>
+                            <li><a href="#zinchenko">Зінченко</a></li>
+                            <li><a href="#laba">Лаба</a></li>
+                            <li><a href="#parfylo">Парфило</a></li>
+                            <li><a href="#komisar">Комісар</a></li>
+                            <li><a href="#ivanchenko">Іванченко</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#youth_praise">Прославлення, Молодіжна</a></li>
+                    <li><a href="#choir_singing">Хоровий спів</a></li>
+                    <li><a href="#water_baptism">Водне хрещення</a></li>
+                    <li><a href="#other_videos">Інші відео</a></li>
+                </ul>
+            </li>
+            <li><a href="radio.html">Християнське радіо 1</a></li>
+            <li><a href="radio_player.html">Християнське радіо 2</a></li>
+        </ul>
+    </nav>
 
-   <!-- Индикатор загрузки -->
     <div id="loader" style="display: none; text-align: center; margin-top:20px;">
         <img src="images/Spinner-3.gif" alt="Loading..." width="50">
         <p>Завантаження відео...</p>
     </div>
 
-   <p style="font-size: smaller; color: red; text-align: center;">Повна збірка. Всього відео: <span id="totalVideoCount" style="font-size: smaller; color: red;">0</span></p>
+    <p style="font-size: smaller; color: red; text-align: center;">Повна збірка. Всього відео: <span id="totalVideoCount" style="font-size: smaller; color: red;">0</span></p>
 
+    <div class="content-section" id="service">
+        <h2>
+            <img src="images/sq-5.jpg" alt="Аватар " class="video-avatar">
+            <a>Служіння</a>
+        </h2>
+        <ul class="video-links" data-group="Служіння"></ul>
+    </div>
 
-<div class="content-section" id="service">
-    <h2>
-        <img src="images/sq-5.jpg" alt="Аватар " class="video-avatar">
-        <a>Служіння</a>
-    </h2>
-    <ul class="video-links" data-group="Служіння"></ul>
-</div>
+    <footer style="background-color: #f4f4f4; padding: 20px; text-align: center; border-top: 1px solid #ccc; margin-top: 50px;">
+        <p>м. Суми, версія збірки: © 2024 р.</p>
+    </footer>
 
-        
-<footer style="background-color: #f4f4f4; padding: 20px; text-align: center; border-top: 1px solid #ccc; margin-top: 50px;">
-    <p>м. Суми, версія збірки: © 2024 р.</p>
-</footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const loader = document.getElementById('loader');
+            const videoLinksContainers = document.querySelectorAll('.video-links');
+            const videoPlayers = document.querySelectorAll('.video-player');
 
-
-   <script>
-
-  document.addEventListener("DOMContentLoaded", function() {
-    const loader = document.getElementById('loader');
-    const videoLinksContainers = document.querySelectorAll('.video-links');
-    const videoPlayers = document.querySelectorAll('.video-player');
-
-    // Загрузка списка видео из файла
-    loader.style.display = 'block';  // Показать индикатор загрузки
-    fetch('https://raw.githubusercontent.com/ruyriy/VideoYouTube/main/videos.txt')
-        .then(response => response.text())
-        .then(data => {
-            loader.style.display = 'none';  // Скрыть индикатор загрузки
-            const videos = data.split('\n').filter(Boolean);
-            renderVideoLists(videos);
-        });
-
-
-function renderVideoLists(videos) {
-    const videoGroups = {};
-    const unknownVideos = [];
-
-    videos.forEach(video => {
-        const [videoIndex, group, videoId, videoTitle] = video.split('§');
-        if (!videoGroups[group]) {
-            videoGroups[group] = [];
-        }
-        videoGroups[group].push({ videoIndex, videoId, videoTitle });
-    });
-
-    // Обновляем глобальный счетчик
-    const totalVideoCount = videos.length;
-    document.getElementById('totalVideoCount').textContent = totalVideoCount;
-
-    videoLinksContainers.forEach(container => {
-        const groupNames = container.getAttribute('data-group').split('|'); // Разделение групп по прямой черте
-        const videosForGroup = groupNames.flatMap(group => videoGroups[group] || []);
-
-        renderVideoList(videosForGroup, container);
-
-        // Удаление известных групп из общего списка видео
-        groupNames.forEach(group => {
-            delete videoGroups[group];
-        });
-    });
-
-    // Сбор всех оставшихся групп
-    Object.values(videoGroups).forEach(groupVideos => {
-        unknownVideos.push(...groupVideos);
-    });
-
-    // Поиск и обработка контейнера для неизвестных групп
-    const unknownGroupContainer = document.querySelector('.video-links[data-group="unknown"]');
-    renderVideoList(unknownVideos, unknownGroupContainer);
-}
-
-
-
-
-    function renderVideoList(videos, container) {
-        videos.forEach(({ videoIndex, videoId, videoTitle }) => {
-            const videoItem = createVideoItem(videoIndex, videoId, videoTitle);
-            container.appendChild(videoItem);
-        });
-
-        updateVideoListeners(container);
-    }
-
-    function createVideoItem(videoIndex, videoId, videoTitle) {
-        const videoItem = document.createElement('li');
-        videoItem.className = 'video-item';
-        videoItem.setAttribute('data-video-id', videoId);
-
-        const videoLink = document.createElement('a');
-        videoLink.className = 'video-link';
-        videoLink.href = '#';
-
-        const videoImage = document.createElement('img');
-        videoImage.src = 'images/youtube_icon.png';
-        videoImage.alt = 'YouTube Icon';
-
-        const videoIndexSpan = document.createElement('span');
-        videoIndexSpan.className = 'video-index';
-        videoIndexSpan.textContent = `[${videoIndex}]Видео `;
-
-        const videoTitleSpan = document.createElement('span');
-        videoTitleSpan.className = 'video-title';
-        videoTitleSpan.textContent = videoTitle;
-
-        videoLink.appendChild(videoImage);
-        videoLink.appendChild(videoIndexSpan);
-        videoLink.appendChild(videoTitleSpan);
-
-        const videoPlayerDiv = document.createElement('div');
-        videoPlayerDiv.className = 'video-player';
-
-        videoItem.appendChild(videoLink);
-        videoItem.appendChild(videoPlayerDiv);
-
-        return videoItem;
-    }
-
-    function updateVideoListeners(container) {
-        const videoLinks = container.querySelectorAll('.video-link');
-        const videoPlayers = container.querySelectorAll('.video-player');
-
-        videoLinks.forEach((link, index) => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                const parentItem = this.parentElement;
-                const videoId = parentItem.getAttribute('data-video-id');
-
-                videoPlayers.forEach(player => {
-                    player.style.display = 'none';
-                    player.innerHTML = '';
+            // Загрузка списка видео из файла
+            loader.style.display = 'block';  // Показать индикатор загрузки
+            fetch('https://raw.githubusercontent.com/ruyriy/VideoYouTube/main/videos.txt')
+                .then(response => response.text())
+                .then(data => {
+                    loader.style.display = 'none';  // Скрыть индикатор загрузки
+                    const videos = data.split('\n').filter(Boolean);
+                    renderVideoLists(videos);
+                })
+                .catch(error => {
+                    loader.style.display = 'none';  // Скрыть индикатор загрузки в случае ошибки
+                    console.error('Ошибка загрузки видео:', error);
                 });
 
-                const playerDiv = parentItem.querySelector('.video-player');
-                const iframe = document.createElement('iframe');
-                iframe.setAttribute('width', '560');
-                iframe.setAttribute('height', '315');
-                iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}`);
-                iframe.setAttribute('frameborder', '0');
-                iframe.setAttribute('allowfullscreen', 'true');
+            function renderVideoLists(videos) {
+                const videoGroups = {};
+                const unknownVideos = [];
 
-                playerDiv.appendChild(iframe);
-                playerDiv.style.display = 'block';
-            });
+                videos.forEach(video => {
+                    const [videoIndex, group, videoId, videoTitle] = video.split('§');
+                    if (!videoGroups[group]) {
+                        videoGroups[group] = [];
+                    }
+                    videoGroups[group].push({ videoIndex, videoId, videoTitle });
+                });
+
+                const totalVideoCount = videos.length;
+                document.getElementById('totalVideoCount').textContent = totalVideoCount;
+
+                videoLinksContainers.forEach(container => {
+                    const groupNames = container.getAttribute('data-group').split('|');
+                    const videosForGroup = groupNames.flatMap(group => videoGroups[group] || []);
+
+                    renderVideoList(videosForGroup, container);
+
+                    groupNames.forEach(group => {
+                        delete videoGroups[group];
+                    });
+                });
+
+                Object.values(videoGroups).forEach(groupVideos => {
+                    unknownVideos.push(...groupVideos);
+                });
+
+                const unknownGroupContainer = document.querySelector('.video-links[data-group="unknown"]');
+                renderVideoList(unknownVideos, unknownGroupContainer);
+            }
+
+            function renderVideoList(videos, container) {
+                videos.forEach(({ videoIndex, videoId, videoTitle }) => {
+                    const videoItem = createVideoItem(videoIndex, videoId, videoTitle);
+                    container.appendChild(videoItem);
+                });
+
+                updateVideoListeners(container);
+            }
+
+            function createVideoItem(videoIndex, videoId, videoTitle) {
+                const videoItem = document.createElement('li');
+                videoItem.className = 'video-item';
+                videoItem.setAttribute('data-video-id', videoId);
+
+                const videoLink = document.createElement('a');
+                videoLink.className = 'video-link';
+                videoLink.href = '#';
+
+                const videoImage = document.createElement('img');
+                videoImage.src = 'images/youtube_icon.png';
+                videoImage.alt = 'YouTube Icon';
+
+                const videoIndexSpan = document.createElement('span');
+                videoIndexSpan.className = 'video-index';
+                videoIndexSpan.textContent = `[${videoIndex}] Видео `;
+
+                const videoTitleSpan = document.createElement('span');
+                videoTitleSpan.className = 'video-title';
+                videoTitleSpan.textContent = videoTitle;
+
+                videoLink.appendChild(videoImage);
+                videoLink.appendChild(videoIndexSpan);
+                videoLink.appendChild(videoTitleSpan);
+
+                const videoPlayerDiv = document.createElement('div');
+                videoPlayerDiv.className = 'video-player';
+
+                videoItem.appendChild(videoLink);
+                videoItem.appendChild(videoPlayerDiv);
+
+                return videoItem;
+            }
+
+            function updateVideoListeners(container) {
+                const videoLinks = container.querySelectorAll('.video-link');
+                const videoPlayers = container.querySelectorAll('.video-player');
+
+                videoLinks.forEach((link, index) => {
+                    link.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        const parentItem = this.parentElement;
+                        const videoId = parentItem.getAttribute('data-video-id');
+
+                        videoPlayers.forEach(player => {
+                            player.style.display = 'none';
+                            player.innerHTML = '';
+                        });
+
+                        const playerDiv = parentItem.querySelector('.video-player');
+                        const iframe = document.createElement('iframe');
+                        iframe.setAttribute('width', '560');
+                        iframe.setAttribute('height', '315');
+                        iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}`);
+                        iframe.setAttribute('frameborder', '0');
+                        iframe.setAttribute('allowfullscreen', 'true');
+
+                        playerDiv.appendChild(iframe);
+                        playerDiv.style.display = 'block';
+                    });
+                });
+            }
         });
-    }
-});
-
-
     </script>
-
-
 </body>
 </html>
-
