@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Список видео с YouTube</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="istockphoto-626708040-612x612.jpg">
+    <link rel="icon" href="images/istockphoto-626708040-612x612.jpg">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -202,7 +202,7 @@
 
     <div class="content-section" id="service">
         <h2>
-            <img src="images/sq-5.jpg" alt="Аватар " class="video-avatar">
+            <img src="images/sq-5.jpg" alt="Аватар" class="video-avatar">
             <a>Служіння</a>
         </h2>
         <ul class="video-links" data-group="Служіння"></ul>
@@ -220,19 +220,19 @@
 
             // Загрузка списка видео из файла
             loader.style.display = 'block';  // Показать индикатор загрузки
-            fetch('https://raw.githubusercontent.com/ruyriy/VideoYouTube/main/videos.txt')
+            fetch('https://raw.githubusercontent.com/ruyriy/VideoYouTube/main/youtube_videos_list.txt')
                 .then(response => response.text())
                 .then(data => {
-                    loader.style.display = 'none';  // Скрыть индикатор загрузки
-                    const videos = data.split('\n').filter(Boolean);
-                    renderVideoLists(videos);
+                    const videos = data.trim().split('\n');
+                    processVideos(videos);
+                    loader.style.display = 'none';  // Скрыть индикатор загрузки после завершения
                 })
                 .catch(error => {
-                    loader.style.display = 'none';  // Скрыть индикатор загрузки в случае ошибки
                     console.error('Ошибка загрузки видео:', error);
+                    loader.style.display = 'none';  // Скрыть индикатор загрузки в случае ошибки
                 });
 
-            function renderVideoLists(videos) {
+            function processVideos(videos) {
                 const videoGroups = {};
                 const unknownVideos = [];
 
@@ -341,3 +341,4 @@
     </script>
 </body>
 </html>
+
