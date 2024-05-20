@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Список видео с YouTube</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="istockphoto-626708040-612x612.jpg">
 
     <style>
 
@@ -13,19 +14,19 @@
             background-color: #f7f7f7;
         }
 
-/* Стили для контейнеров */
-.content-section {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-    padding: 20px;
-    background-image: url('images/icon15.jpg'); /* Путь к вашему фоновому изображению */
-    background-size: cover; /* Масштабирование изображения */
-    background-repeat: no-repeat; /* Запрет повторения фонового изображения */
-    background-position: center; /* Центрирование фонового изображения */
-}
+        /* Стили для контейнеров */
+        .content-section {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            padding: 20px;
+            background-image: url('images/icon15.jpg'); /* Путь к вашему фоновому изображению */
+            background-size: cover; /* Масштабирование изображения */
+            background-repeat: no-repeat; /* Запрет повторения фонового изображения */
+            background-position: center; /* Центрирование фонового изображения */
+        }
 
         .content-section h2 {
             color: #333;
@@ -59,9 +60,16 @@
             margin-right: 10px;
         }
 
-           .video-link img {
-           width: 50px;   /* Установите желаемую ширину */
-           height: auto;  /* Автоматическое масштабирование высоты */
+        /* Стили для основного логотипа */
+        .content-section .video-avatar {
+            width: 100px;  /* Установите желаемую ширину */
+            height: auto;  /* Автоматическое масштабирование высоты */
+        }
+
+        /* Стили для иконки YouTube */
+        .video-link img {
+            width: 50px;   /* Установите желаемую ширину */
+            height: auto;  /* Автоматическое масштабирование высоты */
         }
 
         .video-player {
@@ -70,11 +78,32 @@
             overflow: hidden;
          }
 
-       /* Стили для основного логотипа */
-       .content-section .video-avatar {
-           width: 100px;  /* Установите желаемую ширину */
-          height: auto;  /* Автоматическое масштабирование высоты */
+
+        .submenu {
+            display: none;
         }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        label[for="services-toggle"],
+        label[for="preachers-toggle"] {
+            position: relative;
+        }
+
+        label[for="services-toggle"]:after,
+        label[for="preachers-toggle"]:after {
+            content: "▼";
+            position: absolute;
+            right: -20px; /* Сдвигаем на 5px вправо */
+        }
+
+        input[type="checkbox"]:checked + .submenu {
+            display: block;
+        }
+
+
         @media (max-width: 768px) {
             .video-player {
                 position: relative;
@@ -102,6 +131,27 @@
 
         }
 
+    
+nav ul li {
+    margin-bottom: 0px; /* Збільшуємо відстань між елементами меню по вертикалі на 10 пікселів */
+}
+
+nav ul li a {
+    text-decoration: none; /* Відміняємо підкреслення у посилань */
+    color: #555; /* Колір тексту посилань */
+    width: 250px; /* Фіксована ширина елементів меню */
+    display: block; /* Робимо елементи меню блочними, щоб задати ширину */
+    padding: 4px 10px; /* Внутрішній відступ у посилань */
+    background-color: #f5f5f5; /* Колір фону посилань */
+    border-radius: 5px; /* Закруглюємо кути посилань */
+    transition: background-color 0.3s ease; /* Плавна зміна кольору фону при наведенні */
+    font-size: 20px; /* Зменшуємо розмір шрифту меню */
+}
+
+nav ul li a:hover {
+    background-color: #ddd; /* Колір фону посилань при наведенні */
+}
+
         @media (min-width: 769px) {
             .video-player {
                 width: 560px;
@@ -117,9 +167,42 @@
     </style>
 </head>
 <body>    
-        <p>Церква "Дім Євангелія" м Суми.</p>
-        <p style="font-size: smaller; color: green;">[Відео записи. Оновлено 15.04.24]</p>
+     <h2>Церква "Дім Євангелія</h2>
+  
+    <p>Збірник відео записів .</p>
+    <p style="font-size: smaller; color: green;">[Cторінка : Записи служінь]</p>
 
+<nav>
+    <ul>
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="video_other.html">Другі відео</a></li>
+        <li>
+            <a>Всі записи служінь :</a>
+            <ul>               
+                <li><a href="#service">Служіння</a></li>
+                <li><a href="#praise_the_lord">Прославлення Господа</a></li>
+                <li><a>Проповідники :</a>
+                    <ul>
+                        <li><a href="#marioha">Марйоха</a></li>
+                        <li><a href="#mischenko">Міщенко</a></li>
+                        <li><a href="#buligin">Булигін</a></li>
+                        <li><a href="#zinchenko">Зінченко</a></li>
+                        <li><a href="#laba">Лаба</a></li>
+                        <li><a href="#parfylo">Парфило</a></li>
+                        <li><a href="#komisar">Комісар</a></li>
+                        <li><a href="#ivanchenko">Іванченко</a></li>
+                    </ul>
+                </li>
+                <li><a href="#youth_praise">Прославлення, Молодіжна</a></li>
+                <li><a href="#choir_singing">Хоровий спів</a></li>
+                <li><a href="#water_baptism">Водне хрещення</a></li>
+                <li><a href="#other_videos">Інші відео</a></li>
+            </ul>
+        </li>
+        <li><a href="radio.html">Християнське радіо 1</a></li>
+        <li><a href="radio_player.html">Християнське радіо 2</a></li>
+    </ul>
+</nav>
 
    <!-- Индикатор загрузки -->
     <div id="loader" style="display: none; text-align: center; margin-top:20px;">
@@ -127,158 +210,122 @@
         <p>Завантаження відео...</p>
     </div>
 
-   <p style="font-size: smaller; color: red; text-align: center;">Всього відео: <span id="totalVideoCount" style="font-size: smaller; color: red;">0</span></p>
+   <p style="font-size: smaller; color: red; text-align: center;">Повна збірка. Всього відео: <span id="totalVideoCount" style="font-size: smaller; color: red;">0</span></p>
 
-<div class="content-section">
+
+<div class="content-section" id="service">
     <h2>
-        <img src="images/logoV2.png" alt="Фото " class="video-avatar">
-        Служіння
+        <img src="images/sq-5.jpg" alt="Аватар " class="video-avatar">
+        <a>Служіння</a>
     </h2>
     <ul class="video-links" data-group="Служіння"></ul>
 </div>
 
-<div class="content-section">
+<div class="content-section" id="praise_the_lord">
     <h2>
-        <img src="images/project-image1.jpg" alt="Фото " class="video-avatar">
-        Прославлення господа
+        <img src="images/logo.jpg" alt="Аватар " class="video-avatar">
+        <a>Прославлення Господа</a>
     </h2>
-    <ul class="video-links" data-group="Прославлення Господа"></ul>
+    <ul class="video-links" data-group="Прославлення"></ul>
 </div>
 
-<div class="content-section">
+<div class="content-section" id="marioha">
     <h2>
-        <img src="images/video1-icon.jpg" alt="Фото " class="video-avatar">
-        Марйоха Микола Павлович
-
+        <img src="images/video1-icon.jpg" alt="Аватар " class="video-avatar">
+        <a>Марйоха Микола Павлович</a>
     </h2>
     <ul class="video-links" data-group="Марйоха"></ul>
 </div>
 
-<div class="content-section">
+<div class="content-section" id="mischenko">
     <h2>
-        <img src="images/video2-icon.jpg" alt="Фото " class="video-avatar">
-        Міщенко Андрій
-
+        <img src="images/video2-icon.jpg" alt="Аватар " class="video-avatar">
+        <a>Міщенко Андрій</a>
     </h2>
     <ul class="video-links" data-group="Міщенко"></ul>
 </div>
 
-<div class="content-section">
+<div class="content-section" id="buligin">
     <h2>
-        <img src="images/video3-icon.jpg" alt="Фото " class="video-avatar">
-        Andrew Bulyhin
-
-    </h2>
-    <ul class="video-links" data-group="Andrew Bulyhin"></ul>
-</div>
-
-<div class="content-section">
-    <h2>
-        <img src="images/video3-icon.jpg" alt="Фото " class="video-avatar">
-        Булигін Андрій Петрович
-
+        <img src="images/video3-icon.jpg" alt="Аватар " class="video-avatar">
+        <a>Булигін Андрій Петрович</a>
     </h2>
     <ul class="video-links" data-group="Булигін"></ul>
 </div>
 
-<div class="content-section">
+<div class="content-section" id="zinchenko">
     <h2>
-        <img src="images/video7-icon.jpg" alt="Фото " class="video-avatar">
-        Зінченко
-
+        <img src="images/video7-icon.jpg" alt="Аватар " class="video-avatar">
+        <a>Зінченко</a>
     </h2>
     <ul class="video-links" data-group="Зінченко"></ul>
 </div>
 
-<div class="content-section">
+<div class="content-section" id="laba">
     <h2>
-        <img src="images/video7-icon.jpg" alt="Фото " class="video-avatar">
-        Зинченко
-
-    </h2>
-    <ul class="video-links" data-group="Зинченко"></ul>
-</div>
-
-
-<div class="content-section">
-    <h2>
-        <img src="images/video6-icon.jpg" alt="Фото " class="video-avatar">
-        Лаба
-
+        <img src="images/video6-icon.jpg" alt="Аватар " class="video-avatar">
+        <a>Лаба</a>
     </h2>
     <ul class="video-links" data-group="Лаба"></ul>
 </div>
 
-<div class="content-section">
+<div class="content-section" id="parfylo">
     <h2>
-        <img src="images/video4-icon.jpg" alt="Фото " class="video-avatar">
-       Парфіло 
-
+        <img src="images/video4-icon.jpg" alt="Аватар " class="video-avatar">
+        <a>Парфіло</a>
     </h2>
     <ul class="video-links" data-group="Парфило"></ul>
 </div>
 
-<div class="content-section">
+<div class="content-section" id="komisar">
     <h2>
-        <img src="images/logo.jpg" alt="Фото " class="video-avatar">
-       Комисар
-
+        <img src="images/video8-icon.jpg" alt="Аватар " class="video-avatar">
+        <a>Комісар</a>
     </h2>
-    <ul class="video-links" data-group="Комисар"></ul>
+    <ul class="video-links" data-group="Комісар"></ul>
 </div>
 
-<div class="content-section">
+<div class="content-section" id="ivanchenko">
     <h2>
-        <img src="images/logo.jpg" alt="Фото " class="video-avatar">
-       Иванченко
-
-    </h2>
-    <ul class="video-links" data-group="Иванченко"></ul>
-</div>
-
-
-<div class="content-section">
-    <h2>
-        <img src="images/logo.jpg" alt="Фото " class="video-avatar">
-       Іванченко
-
+        <img src="images/video5-icon.jpg" alt="Аватар " class="video-avatar">
+        <a>Іванченко</a>
     </h2>
     <ul class="video-links" data-group="Іванченко"></ul>
 </div>
 
-
-<div class="content-section">
+<div class="content-section" id="youth_praise">
     <h2>
-        <img src="images/logo.jpg" alt="Фото " class="video-avatar">
-        Хоровое пение
+        <img src="images/team-image4.jpg" alt="Аватар " class="video-avatar">
+        <a>Прославлення, Молодіжна</a>
     </h2>
-    <ul class="video-links" data-group="Хоровое пение"></ul>
+    <ul class="video-links" data-group="Молодіжне служіння|Дитяче служіння|Охріменко|Олена Приходько"></ul>
 </div>
 
-<div class="content-section">
+<div class="content-section" id="choir_singing">
     <h2>
-        <img src="images/logo.jpg" alt="Фото " class="video-avatar">
-        Водне хрещення
+        <img src="images/project-image4.jpg" alt="Аватар " class="video-avatar">
+        <a>Хоровий спів</a>
+    </h2>
+    <ul class="video-links" data-group="Хоровий спів"></ul>
+</div>
+
+<div class="content-section" id="water_baptism">
+    <h2>
+        <img src="images/project-image5.jpg" alt="Аватар " class="video-avatar">
+        <a>Водне хрещення</a>
     </h2>
     <ul class="video-links" data-group="Водне хрещення"></ul>
 </div>
 
-<div class="content-section">
+<div class="content-section" id="other_videos">
     <h2>
-        <img src="images/logo.jpg" alt="Фото " class="video-avatar">
-        Інші відео
+        <img src="images/logo.jpg" alt="Аватар " class="video-avatar">
+        <a>Інші відео</a>
     </h2>
-    <ul class="video-links" data-group="Other"></ul>
+    <ul class="video-links" data-group="остальное|Unknown"></ul>
 </div>
 
 
-<div class="content-section">
-    <h2>
-        <img src="images/logo.jpg" alt="Фото " class="video-avatar">
-        Іншие відео - продовження
-    </h2>
-    <ul class="video-links" data-group="unknown"></ul>
-</div>
         
 <footer style="background-color: #f4f4f4; padding: 20px; text-align: center; border-top: 1px solid #ccc; margin-top: 50px;">
     <p>м. Суми, версія збірки: © 2024 р.</p>
@@ -302,41 +349,47 @@
             renderVideoLists(videos);
         });
 
-    function renderVideoLists(videos) {
-        const videoGroups = {};
-        const unknownVideos = [];
 
-        videos.forEach(video => {
-            const [videoIndex, group, videoId, videoTitle] = video.split(':');
-            if (!videoGroups[group]) {
-                videoGroups[group] = [];
-            }
-            videoGroups[group].push({ videoIndex, videoId, videoTitle });
-        });
+function renderVideoLists(videos) {
+    const videoGroups = {};
+    const unknownVideos = [];
 
-        // Обновляем глобальный счетчик
-        const totalVideoCount = videos.length;
-        document.getElementById('totalVideoCount').textContent = totalVideoCount;
+    videos.forEach(video => {
+        const [videoIndex, group, videoId, videoTitle] = video.split('§');
+        if (!videoGroups[group]) {
+            videoGroups[group] = [];
+        }
+        videoGroups[group].push({ videoIndex, videoId, videoTitle });
+    });
 
-        videoLinksContainers.forEach(container => {
-            const group = container.getAttribute('data-group');
-            const videosForGroup = videoGroups[group] || [];
+    // Обновляем глобальный счетчик
+    const totalVideoCount = videos.length;
+    document.getElementById('totalVideoCount').textContent = totalVideoCount;
 
-            renderVideoList(videosForGroup, container);
+    videoLinksContainers.forEach(container => {
+        const groupNames = container.getAttribute('data-group').split('|'); // Разделение групп по прямой черте
+        const videosForGroup = groupNames.flatMap(group => videoGroups[group] || []);
 
-            // Удаление известных групп из общего списка видео
+        renderVideoList(videosForGroup, container);
+
+        // Удаление известных групп из общего списка видео
+        groupNames.forEach(group => {
             delete videoGroups[group];
         });
+    });
 
-        // Сбор всех оставшихся групп
-        Object.values(videoGroups).forEach(groupVideos => {
-            unknownVideos.push(...groupVideos);
-        });
+    // Сбор всех оставшихся групп
+    Object.values(videoGroups).forEach(groupVideos => {
+        unknownVideos.push(...groupVideos);
+    });
 
-        // Поиск и обработка контейнера для неизвестных групп
-        const unknownGroupContainer = document.querySelector('.video-links[data-group="unknown"]');
-        renderVideoList(unknownVideos, unknownGroupContainer);
-    }
+    // Поиск и обработка контейнера для неизвестных групп
+    const unknownGroupContainer = document.querySelector('.video-links[data-group="unknown"]');
+    renderVideoList(unknownVideos, unknownGroupContainer);
+}
+
+
+
 
     function renderVideoList(videos, container) {
         videos.forEach(({ videoIndex, videoId, videoTitle }) => {
@@ -413,5 +466,8 @@
 
 
     </script>
+
+
 </body>
 </html>
+
