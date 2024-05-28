@@ -38,7 +38,6 @@
             margin-bottom: 20px; /* Отступ между плеерами */
         }
 
-
 nav ul li {
     margin-bottom: 8px; /* Увеличиваем расстояние между элементами меню по вертикали на 8 пикселей */
 }
@@ -51,18 +50,22 @@ nav ul li a {
     padding: 4px 10px; /* Внутренний отступ у ссылок */
     background-color: #fff; /* Цвет фона ссылок */
     border-radius: 8px; /* Закругляем углы ссылок */
-    transition: background-color 0.3s ease; /* Плавное изменение цвета фона при наведении */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Плавное изменение цвета фона и тени при наведении */
     font-size: 20px; /* Увеличиваем размер шрифта главного меню */
 }
 
+nav ul li a:hover {
+    background-color: #1565c0; /* Цвет фона при наведении */
+    color: #fff; /* Цвет текста при наведении */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень при наведении */
+}
 
-
-       @media (max-width: 768px) {
-            .player {
-                width: 80%; /* Полная ширина плеера для мобильных устройств */
-                height: 180px; /* Высота плеера для мобильных устройств */
-            }
-        }
+@media (max-width: 768px) {
+    .player {
+        width: 80%; /* Полная ширина плеера для мобильных устройств */
+        height: 180px; /* Высота плеера для мобильных устройств */
+    }
+}
 
     </style>
 </head>
@@ -79,7 +82,7 @@ nav ul li a {
             <li><a href="video_other.html">Другі відео :</a></li>
             <ul>               
                <li><a href="video_other.html#sluzhinnya-anchor">Збірки проповідей</a></li>
-	       <li><a href="video_other.html#musical">Музична християнська сбірка</a></li>
+               <li><a href="video_other.html#musical">Музична християнська сбірка</a></li>
             </ul>
             <li><a href="radio.html">Християнське радіо 1</a></li>
             <li><a href="radio_player.html">Християнське радіо 2</a></li>
@@ -132,7 +135,7 @@ nav ul li a {
 
             // Создаем четыре плеера и загружаем в них последние видео
             const playersContainer = document.getElementById('players');
-            for (let i = 0; i < 5 && i < videos.length; i++) {
+            for (let i = 0; i < 6 && i < videos.length; i++) {
                 const player = createYouTubePlayer(videos[i].videoId);
                 playersContainer.appendChild(player);
             }
